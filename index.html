@@ -1560,14 +1560,14 @@ function calc(){
   const cidTxt = cid ? cid : (uf? UFS[uf].n : 'Brasil');
   const rotulo = MESSEL==='' ? '' : (()=>{const [y,m]=MESSEL.split('-').map(Number);
     return MESES[m]+' de '+y;})();
-  const top=JANELAS[0];
+  const top=JANELAS.find(r=>r.rank===1) || JANELAS.reduce((m,r)=>!m||r.total>m.total?r:m,null);
 
   $('lead').innerHTML = `Melhores datas para tirar férias em <b>${cidTxt}</b> · `
     + (MESSEL==='' ? `<b>${fmt(HOJE_D)} ${HOJE_D.getFullYear()}</b> a <b>${fmt(FIM_D)} ${FIM_D.getFullYear()}</b>`
                    : `<b>${rotulo}</b>`);
 
   const avisos=[];
-  if(aviso) avisos.push(`Datas antes de <b>${fmt(dInicio)}</b> ficam de fora: o art. 135 pede aviso de 30 dias.`);
+  if(aviso) avisos.push(`Datas antes de <b>${fmt(dInicio)}</b> ficam de fora — o aviso ao RH costuma ser de 30 dias.`);
   if(PRAZO){
     const noPrazo=elegiveis.filter(r=>!r.fora).length;
     avisos.push(PRAZO<HOJE_D
