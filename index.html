@@ -99,16 +99,29 @@
     font-size:11px;color:var(--ink3);font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   }
   select,input[type=number]{
-    appearance:none;-webkit-appearance:none;
-    width:100%;background:var(--fill);border:1px solid var(--line2);border-radius:var(--radius);
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    width:100%;border:1px solid var(--line2);border-radius:var(--radius);
     padding:10px 12px;font:inherit;font-size:14.5px;font-weight:500;color:var(--ink);
-    transition:border-color .13s,background .13s;cursor:pointer;
+    transition:border-color .13s,background-color .13s;cursor:pointer;
+    background-color:var(--fill);
   }
-  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'><path d='M1 1l4.5 4.5L10 1' stroke='%23b2b2b2' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
-    background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
-  input[type=number]{cursor:text}
+  select{
+    background-color:var(--fill);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23b2b2b2' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 12px center;
+    background-size:12px 8px;
+    padding-right:36px;
+  }
+  input[type=number]{cursor:text;background-image:none}
   select:hover,input:hover{border-color:var(--ink3)}
-  select:focus,input:focus{outline:none;border-color:var(--acc);background:#000}
+  select:focus,input:focus{outline:none;border-color:var(--acc);background-color:#000}
+  select:focus{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23ffbb00' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 12px center;
+    background-size:12px 8px;
+  }
   option{background:#111;color:var(--ink)}
 
   .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
@@ -206,8 +219,9 @@
   .toolbar label{display:inline-flex;align-items:center;gap:7px;
     font-size:11px;color:var(--ink3);font-weight:600;white-space:nowrap;
     text-transform:uppercase;letter-spacing:.06em}
-  .toolbar select{width:auto;padding:6px 28px 6px 9px;font-size:13px;border-radius:var(--radius);
-    background-position:right 8px center;text-transform:none;letter-spacing:0;font-weight:500}
+  .toolbar select{width:auto;padding:6px 36px 6px 9px;font-size:13px;border-radius:var(--radius);
+    background-position:right 10px center;background-size:12px 8px;
+    text-transform:none;letter-spacing:0;font-weight:500}
   .toolbar select:not([value=""]){color:var(--ink)}
   .toolbar select.ativo{border-color:var(--acc);color:var(--acc)}
 
@@ -220,9 +234,11 @@
   .w:hover{background:transparent}
   .w.melhor{border-left:3px solid var(--acc);padding-left:14px;margin-left:-17px}
   .wn{font-size:12px;color:var(--ink3);font-weight:700;padding-top:4px;font-variant-numeric:tabular-nums}
-  .w:first-child .wn,.w.melhor .wn{color:var(--acc)}
-  .list.data .w:first-child .wn{color:var(--ink3)}
+  .w.melhor .wn{color:var(--acc)}
   .list.data .w.melhor .wn{color:var(--acc)}
+  .w:first-child .wn{color:var(--ink3)}
+  .list.data .w:first-child .wn{color:var(--ink3)}
+  .w.melhor:first-child .wn{color:var(--acc)}
   .wmain{min-width:0}
   .wdate{font-size:18px;font-weight:700;letter-spacing:-.03em;line-height:1.25}
   .wdate em{font-style:normal;color:var(--ink3);font-weight:500}
@@ -988,7 +1004,7 @@ function podar(list, lim){
    5. RENDER
    ═══════════════════════════════════════════════════════════════ */
 
-let SEL=null, JANELAS=[], MOSTRA=6, PARTES=2, CUSTOM=null;
+let SEL=null, ATIVA=0, JANELAS=[], MOSTRA=6, PARTES=2, CUSTOM=null;
 
 function marcarSeg(){
   document.querySelectorAll('.seg button').forEach(b=>{
@@ -1079,9 +1095,23 @@ function eMelhorOpcao(r,n,porData){
   return porData ? r.rank===1 : n===1;
 }
 
+/* Clicar na lista só troca a opção ativa — não muda de aba. */
+function ativarNaLista(k){
+  if(k<0 || k>=JANELAS.length) return;
+  ATIVA=k;
+  const item=JANELAS[k];
+  if(item.plano)
+    SEL=item.periodos.map(r=>({a:r.a,b:r.b,i:r.i,j:r.j}));
+  else
+    SEL=[{a:item.a,b:item.b,i:item.i,j:item.j}];
+  pintar();
+  marcarUso();
+}
+
 function janela(r,n,porData){
   const extra=r.total-r.custo;
   const melhor=eMelhorOpcao(r,n,porData);
+  const ativa=ATIVA===n-1;
   // "Carnaval (segunda)" e "Carnaval (terça)" viram um "Carnaval" só
   const fs=[...new Set(feriadosEm(r.a,r.b).map(f=>f.n.replace(/ \(.*\)$/,'')))];
   const ganho=[];
@@ -1095,7 +1125,7 @@ function janela(r,n,porData){
   const rotulo=(porData ? `${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}, ${r.rank}º melhor. `
                         : `${n}º lugar. ${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}. `)
     +`${r.total} dias fora usando ${r.custo} de férias.`;
-  const cta=melhor?`
+  const cta=ativa?`
     <p class="wwhy"><b>Por que essa?</b> ${porqueEssa(r)}</p>
     <div class="wctas" onclick="event.stopPropagation()">
       <button type="button" class="wcta go" aria-label="Copiar pedido para o RH"
@@ -1105,9 +1135,9 @@ function janela(r,n,porData){
       <button type="button" class="wcta" aria-label="Baixar evento de calendário"
         onclick="exportar(event,${r.a},${r.b},${r.i},${r.j})">.ics</button>
     </div>`:'';
-  return `<li class="w${r.fora?' fora':''}${melhor?' melhor':''}" tabindex="0" role="button" aria-label="${rotulo}"
-      onclick="selecionar(${r.a},${r.b},${r.i},${r.j})"
-      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selecionar(${r.a},${r.b},${r.i},${r.j})}">
+  return `<li class="w${r.fora?' fora':''}${ativa?' melhor':''}" tabindex="0" role="button" aria-label="${rotulo}" aria-pressed="${ativa?'true':'false'}"
+      onclick="ativarNaLista(${n-1})"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();ativarNaLista(${n-1})}">
     <div class="wn" aria-hidden="true">${n}</div>
     <div class="wmain">
       <div class="wdate">${periodo(r.a,r.b)}</div>
@@ -1116,7 +1146,7 @@ function janela(r,n,porData){
     </div>
     <div class="wnum">
       <b>${r.total}</b><span>dias fora</span>
-      ${melhor?'':`<div class="wicsrow">
+      ${ativa?'':`<div class="wicsrow">
         <button class="wics" aria-label="Baixar ${fmtA(T[r.i].d)} como evento de calendário"
           onclick="exportar(event,${r.a},${r.b},${r.i},${r.j})">.ics</button>
         <button class="wrh" aria-label="Copiar pedido para o RH"
@@ -1131,6 +1161,7 @@ function janela(r,n,porData){
 // uma linha quando o usuário dividiu as férias em 2 ou 3 períodos
 function planoLinha(p,n,porData){
   const melhor=eMelhorOpcao(p,n,porData);
+  const ativa=ATIVA===n-1;
   const ganho=[];
   if(p.fora) ganho.push(`<span class="bad">algum período estoura o prazo</span>`);
   if(p.desperdicio>0) ganho.push(`<span class="warn">${p.desperdicio} feriado${p.desperdicio>1?'s':''} desperdiçado${p.desperdicio>1?'s':''}</span>`);
@@ -1146,7 +1177,7 @@ function planoLinha(p,n,porData){
       <div class="perx">${r.total} fora</div>
     </div>`).join('');
   const rotulo=`Plano com ${p.periodos.length} períodos, ${p.total} dias fora usando ${p.custo} de férias.`;
-  const cta=melhor?`
+  const cta=ativa?`
     <p class="wwhy"><b>Por que essa?</b> ${porquePlano(p)}</p>
     <div class="wctas" onclick="event.stopPropagation()">
       <button type="button" class="wcta go" aria-label="Copiar pedido do plano para o RH"
@@ -1156,10 +1187,10 @@ function planoLinha(p,n,porData){
       <button type="button" class="wcta" aria-label="Baixar o plano como eventos"
         onclick="exportarPlano(event,${n-1})">.ics</button>
     </div>`:'';
-  return `<li class="w plano${p.fora?' fora':''}${melhor?' melhor':''}"
-      tabindex="0" role="button" aria-label="${rotulo}"
-      onclick="selecionarPlano(${n-1})"
-      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selecionarPlano(${n-1})}">
+  return `<li class="w plano${p.fora?' fora':''}${ativa?' melhor':''}"
+      tabindex="0" role="button" aria-label="${rotulo}" aria-pressed="${ativa?'true':'false'}"
+      onclick="ativarNaLista(${n-1})"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();ativarNaLista(${n-1})}">
     <div class="wn" aria-hidden="true">${n}</div>
     <div class="wmain">
       <div class="wdate">${p.periodos.length} períodos <em>· ${p.periodos.map(r=>r.custo).join(' + ')} dias</em></div>
@@ -1168,7 +1199,7 @@ function planoLinha(p,n,porData){
     </div>
     <div class="wnum">
       <b>${p.total}</b><span>dias fora</span>
-      ${melhor?'':`<div class="wicsrow">
+      ${ativa?'':`<div class="wicsrow">
         <button class="wics" aria-label="Baixar o plano como eventos de calendário"
           onclick="exportarPlano(event,${n-1})">.ics</button>
         <button class="wrh" aria-label="Copiar pedido do plano para o RH"
@@ -1181,6 +1212,7 @@ function planoLinha(p,n,porData){
 
 function selecionarPlano(k){
   const p=JANELAS[k];
+  ATIVA=k;
   SEL=p.periodos.map(r=>({a:r.a,b:r.b,i:r.i,j:r.j}));
   renderCal();
   tab('cal', document.querySelectorAll('nav.tabs button')[1]);
@@ -1301,6 +1333,8 @@ function exportar(ev,a,b,i,j){
 }
 
 function selecionar(a,b,i,j){
+  const idx=JANELAS.findIndex(r=>!r.plano && r.a===a && r.b===b && r.i===i && r.j===j);
+  if(idx>=0) ATIVA=idx;
   SEL=[{a,b,i,j}]; renderCal();
   tab('cal', document.querySelectorAll('nav.tabs button')[1]);
   marcarUso();
@@ -1523,6 +1557,15 @@ function calc(){
   JANELAS.forEach((r,n)=>r.rank=n+1);
   const porData = $('ord').value==='data';
   if(porData) JANELAS.sort((x,y)=>x.i-y.i);
+  // opção ativa: a melhor (rank 1), sem pular de aba
+  ATIVA = Math.max(0, JANELAS.findIndex(r=>r.rank===1));
+  if(ATIVA>=JANELAS.length) ATIVA=0;
+  if(JANELAS[ATIVA]){
+    const item=JANELAS[ATIVA];
+    SEL=item.plano
+      ? item.periodos.map(r=>({a:r.a,b:r.b,i:r.i,j:r.j}))
+      : [{a:item.a,b:item.b,i:item.i,j:item.j}];
+  } else SEL=null;
   $('ord').classList.toggle('ativo',porData);
   $('temp').classList.toggle('ativo',temp!=='');
 
