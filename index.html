@@ -67,21 +67,147 @@
   html{-webkit-text-size-adjust:100%}
   body{
     margin:0;color:var(--ink);min-height:100vh;
-    background:
-      radial-gradient(90% 55% at 0% 0%,#ffe0c8 0%,transparent 55%),
-      radial-gradient(70% 45% at 100% 0%,#cce9f7 0%,transparent 50%),
-      linear-gradient(180deg,#fff0e4 0%,var(--bg) 38%,#fffaf5 100%);
+    background:var(--bg);
     font-family:var(--font);
     -webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5;
     font-weight:400;
+    position:relative;
   }
-  .wrap{max-width:800px;margin:0 auto;
+
+  /* ── pôr do sol na praia (fundo vivo, sem recorte) ── */
+  .beach{
+    position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  }
+  .beach__sky{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,
+      #6eb6ff 0%,
+      #9ed0ff 18%,
+      #ffd0a8 42%,
+      #ffb07a 58%,
+      #ff8f6b 72%,
+      #4a90b8 78%,
+      #2f6f96 100%);
+  }
+  .beach__cloud{
+    position:absolute;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    opacity:.78;
+    filter:blur(.4px);
+    animation:beachCloud linear infinite;
+  }
+  .beach__cloud--a{
+    top:9%;left:-22%;width:210px;height:78px;
+    animation-duration:52s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 90'%3E%3Cellipse cx='58' cy='58' rx='42' ry='26' fill='%23fff' fill-opacity='.92'/%3E%3Cellipse cx='98' cy='46' rx='48' ry='34' fill='%23fff' fill-opacity='.95'/%3E%3Cellipse cx='142' cy='52' rx='40' ry='28' fill='%23fff' fill-opacity='.9'/%3E%3Cellipse cx='175' cy='60' rx='28' ry='18' fill='%23fff' fill-opacity='.88'/%3E%3Cellipse cx='78' cy='62' rx='36' ry='20' fill='%23fff' fill-opacity='.85'/%3E%3C/svg%3E");
+  }
+  .beach__cloud--b{
+    top:16%;left:-28%;width:170px;height:64px;opacity:.65;
+    animation-duration:68s;animation-delay:-22s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Cellipse cx='48' cy='50' rx='34' ry='22' fill='%23fff' fill-opacity='.9'/%3E%3Cellipse cx='88' cy='40' rx='44' ry='30' fill='%23fff' fill-opacity='.95'/%3E%3Cellipse cx='130' cy='48' rx='36' ry='24' fill='%23fff' fill-opacity='.9'/%3E%3Cellipse cx='160' cy='54' rx='24' ry='16' fill='%23fff' fill-opacity='.85'/%3E%3C/svg%3E");
+  }
+  .beach__cloud--c{
+    top:6%;left:-24%;width:140px;height:52px;opacity:.55;
+    animation-duration:60s;animation-delay:-38s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 70'%3E%3Cellipse cx='42' cy='44' rx='30' ry='18' fill='%23fff' fill-opacity='.88'/%3E%3Cellipse cx='78' cy='36' rx='38' ry='26' fill='%23fff' fill-opacity='.95'/%3E%3Cellipse cx='118' cy='42' rx='32' ry='20' fill='%23fff' fill-opacity='.9'/%3E%3Cellipse cx='148' cy='48' rx='20' ry='14' fill='%23fff' fill-opacity='.82'/%3E%3C/svg%3E");
+  }
+  .beach__sun{
+    position:absolute;
+    left:50%;bottom:34%;
+    width:min(240px,46vw);height:min(240px,46vw);
+    margin-left:calc(min(240px,46vw) / -2);
+    border-radius:50%;
+    background:radial-gradient(circle,
+      #fffdf0 0%,
+      #ffe9a8 22%,
+      #ffc978 40%,
+      #ff9a6a88 58%,
+      transparent 72%);
+    filter:blur(1.5px);
+    animation:beachSun 16s ease-in-out infinite alternate;
+  }
+  .beach__haze{
+    position:absolute;left:10%;right:10%;bottom:28%;height:28%;
+    background:radial-gradient(ellipse at 50% 80%,#ffd7a866 0%,transparent 70%);
+    animation:beachHaze 10s ease-in-out infinite alternate;
+  }
+  /* Mar sólido + ondas periódicas (início = fim → sem costura) */
+  .beach__sea{
+    position:absolute;left:0;right:0;bottom:0;height:40%;
+    overflow:hidden;
+    background:linear-gradient(180deg,#5aa0c4 0%,#2f6f96 42%,#1e5474 100%);
+  }
+  .beach__wave{
+    position:absolute;left:-8%;width:116%;height:160px;
+    background-repeat:repeat-x;
+    background-position:0 100%;
+    background-size:1200px 160px;
+    will-change:background-position,transform;
+  }
+  /* Cubics com mesma tangente em 0 e 1200 → tile invisível */
+  .beach__wave--1{
+    bottom:16%;
+    opacity:.88;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160' preserveAspectRatio='none'%3E%3Cpath fill='%2399c9e3' d='M0 78C200 28 400 128 600 78C800 28 1000 128 1200 78V160H0Z'/%3E%3C/svg%3E");
+    animation:beachWaveX 18s linear infinite,beachWaveY 5s ease-in-out infinite alternate;
+  }
+  .beach__wave--2{
+    bottom:6%;
+    opacity:.9;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160' preserveAspectRatio='none'%3E%3Cpath fill='%235a9ec4' d='M0 86C200 36 400 136 600 86C800 36 1000 136 1200 86V160H0Z'/%3E%3C/svg%3E");
+    animation:beachWaveX 12s linear infinite reverse,beachWaveY 6.5s ease-in-out infinite alternate-reverse;
+  }
+  .beach__wave--3{
+    bottom:-4%;
+    opacity:.96;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160' preserveAspectRatio='none'%3E%3Cpath fill='%232f6f96' d='M0 92C200 42 400 142 600 92C800 42 1000 142 1200 92V160H0Z'/%3E%3C/svg%3E");
+    animation:beachWaveX 9s linear infinite,beachWaveY 4.5s ease-in-out infinite alternate;
+  }
+  .beach__shimmer{
+    position:absolute;inset:0;
+    background:linear-gradient(105deg,
+      transparent 40%,
+      #ffffff28 50%,
+      transparent 60%);
+    background-size:200% 100%;
+    animation:beachShimmer 8s linear infinite;
+    mix-blend-mode:soft-light;
+  }
+  @keyframes beachCloud{
+    from{transform:translateX(0)}
+    to{transform:translateX(140vw)}
+  }
+  @keyframes beachSun{
+    from{transform:translateY(0) scale(1);opacity:.95}
+    to{transform:translateY(22px) scale(1.08);opacity:1}
+  }
+  @keyframes beachHaze{
+    from{opacity:.55;transform:scaleX(1)}
+    to{opacity:.95;transform:scaleX(1.1)}
+  }
+  /* desloca exatamente 1 tile → junta com o próximo sem salto */
+  @keyframes beachWaveX{
+    from{background-position:0 100%}
+    to{background-position:-1200px 100%}
+  }
+  @keyframes beachWaveY{
+    from{transform:translateY(0)}
+    to{transform:translateY(-10px)}
+  }
+  @keyframes beachShimmer{
+    from{background-position:100% 0}
+    to{background-position:-100% 0}
+  }
+
+  .wrap{max-width:800px;margin:0 auto;position:relative;z-index:1;
     padding:calc(36px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right))
             calc(100px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left))}
   b,strong{font-weight:600}
 
   /* ── cabeçalho ───────────────────────────── */
-  header{margin-bottom:28px}
+  header{margin-bottom:28px;text-shadow:0 1px 0 #ffffffb0,0 10px 28px #ffffff80}
   .brand-tag{
     margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:.01em;
     color:var(--sea);
@@ -223,7 +349,7 @@
   .splitinfo .alerta{color:var(--am)}
 
   .toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
-    padding:0 0 18px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+    padding:0 0 18px;margin-bottom:4px}
   .toolbar label{display:inline-flex;align-items:center;gap:7px;
     font-size:12px;color:var(--ink3);font-weight:600;white-space:nowrap}
   .toolbar select{width:auto;padding:6px 36px 6px 9px;font-size:13px;border-radius:var(--radius);
@@ -411,13 +537,14 @@
   }
   @media(prefers-reduced-motion:reduce){
     *{transition:none!important;animation:none!important}
+    .beach__sun,.beach__wave{transform:none}
   }
 
   .pwa{
     position:fixed;left:0;right:0;bottom:0;z-index:40;
     padding:12px calc(16px + env(safe-area-inset-right))
             calc(12px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
-    background:linear-gradient(180deg,transparent,#fff5ebee 28%,#fff5eb);
+    background:linear-gradient(180deg,transparent,#fff5ebe8 22%,#fff5eb);
     pointer-events:none;
   }
   .pwa[hidden]{display:none!important}
@@ -467,10 +594,23 @@
 </style>
 </head>
 <body>
+<div class="beach" aria-hidden="true">
+  <div class="beach__sky"></div>
+  <div class="beach__cloud beach__cloud--a"></div>
+  <div class="beach__cloud beach__cloud--b"></div>
+  <div class="beach__cloud beach__cloud--c"></div>
+  <div class="beach__sun"></div>
+  <div class="beach__haze"></div>
+  <div class="beach__sea">
+    <div class="beach__wave beach__wave--1"></div>
+    <div class="beach__wave beach__wave--2"></div>
+    <div class="beach__wave beach__wave--3"></div>
+    <div class="beach__shimmer"></div>
+  </div>
+</div>
 <div class="wrap">
 
 <header>
-  <p class="brand-tag">planejador de férias · CLT</p>
   <h1><span class="mark" aria-hidden="true"></span> Férias <span class="destaque">Certa</span></h1>
   <p class="lead" id="lead"></p>
 </header>
