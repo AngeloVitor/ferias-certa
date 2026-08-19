@@ -1,0 +1,803 @@
+{
+  "versao": "2026.08",
+  "revisado": "agosto de 2026",
+  "licenca": "CC BY 4.0",
+  "observacao": "Feriados municipais e pontos facultativos mudam por decreto local e por convencao coletiva. Rever anualmente com fonte oficial de cada municipio.",
+  "moveis": {
+    "algoritmo": "Pascoa por Meeus/Jones/Butcher; os demais sao deslocamentos em dias a partir do domingo de Pascoa.",
+    "offsets": {
+      "carnaval-segunda": -48,
+      "carnaval-terca": -47,
+      "quarta-de-cinzas": -46,
+      "sexta-feira-santa": -2,
+      "pascoa": 0,
+      "corpus-christi": 60
+    }
+  },
+  "cinzas": {
+    "observacao": "Ponto facultativo integral nas UFs de diaInteiro; nas demais o expediente retorna no horario indicado.",
+    "diaInteiro": [
+      "AC",
+      "AL",
+      "AP",
+      "AM",
+      "BA",
+      "ES",
+      "MA",
+      "MG",
+      "PE",
+      "PI",
+      "RJ",
+      "RO",
+      "RR",
+      "SE"
+    ],
+    "retorno": {
+      "DF": "14h",
+      "GO": "14h",
+      "MT": "14h",
+      "PR": "14h",
+      "RN": "14h",
+      "SC": "14h",
+      "CE": "13h",
+      "MS": "13h",
+      "RS": "13h",
+      "PA": "12h",
+      "PB": "12h",
+      "SP": "12h",
+      "TO": "12h"
+    }
+  },
+  "meioExpediente": [
+    {
+      "data": "12-24",
+      "nome": "Vespera de Natal"
+    },
+    {
+      "data": "12-31",
+      "nome": "Vespera de Ano-Novo"
+    }
+  ],
+  "nacionais": [
+    {
+      "data": "01-01",
+      "nome": "Confraternização Universal"
+    },
+    {
+      "data": "04-21",
+      "nome": "Tiradentes"
+    },
+    {
+      "data": "05-01",
+      "nome": "Dia do Trabalho"
+    },
+    {
+      "data": "09-07",
+      "nome": "Independência do Brasil"
+    },
+    {
+      "data": "10-12",
+      "nome": "Nossa Senhora Aparecida"
+    },
+    {
+      "data": "11-02",
+      "nome": "Finados"
+    },
+    {
+      "data": "11-15",
+      "nome": "Proclamação da República"
+    },
+    {
+      "data": "11-20",
+      "nome": "Consciência Negra"
+    },
+    {
+      "data": "12-25",
+      "nome": "Natal"
+    }
+  ],
+  "estados": {
+    "AC": {
+      "nome": "Acre",
+      "feriados": [
+        {
+          "data": "01-23",
+          "nome": "Dia do Evangélico"
+        },
+        {
+          "data": "06-15",
+          "nome": "Aniversário do Acre"
+        },
+        {
+          "data": "09-05",
+          "nome": "Dia da Amazônia"
+        },
+        {
+          "data": "11-17",
+          "nome": "Tratado de Petrópolis"
+        }
+      ],
+      "cidades": {
+        "Rio Branco": [
+          {
+            "data": "12-28",
+            "nome": "Aniversário de Rio Branco"
+          }
+        ]
+      }
+    },
+    "AL": {
+      "nome": "Alagoas",
+      "feriados": [
+        {
+          "data": "06-24",
+          "nome": "São João"
+        },
+        {
+          "data": "06-29",
+          "nome": "São Pedro"
+        },
+        {
+          "data": "09-16",
+          "nome": "Emancipação Política de Alagoas"
+        }
+      ],
+      "cidades": {
+        "Maceió": [
+          {
+            "data": "12-05",
+            "nome": "Aniversário de Maceió"
+          }
+        ]
+      }
+    },
+    "AM": {
+      "nome": "Amazonas",
+      "feriados": [
+        {
+          "data": "09-05",
+          "nome": "Elevação do Amazonas a Província"
+        },
+        {
+          "data": "12-08",
+          "nome": "N. Sra. da Conceição"
+        }
+      ],
+      "cidades": {
+        "Manaus": [
+          {
+            "data": "10-24",
+            "nome": "Aniversário de Manaus"
+          }
+        ]
+      }
+    },
+    "AP": {
+      "nome": "Amapá",
+      "feriados": [
+        {
+          "data": "03-19",
+          "nome": "São José"
+        },
+        {
+          "data": "07-25",
+          "nome": "São Tiago"
+        },
+        {
+          "data": "10-05",
+          "nome": "Criação do Estado"
+        }
+      ],
+      "cidades": {
+        "Macapá": [
+          {
+            "data": "02-04",
+            "nome": "Aniversário de Macapá"
+          }
+        ]
+      }
+    },
+    "BA": {
+      "nome": "Bahia",
+      "feriados": [
+        {
+          "data": "07-02",
+          "nome": "Independência da Bahia"
+        }
+      ],
+      "cidades": {
+        "Feira de Santana": [
+          {
+            "data": "09-18",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Salvador": [
+          {
+            "data": "12-08",
+            "nome": "N. Sra. da Conceição da Praia"
+          }
+        ]
+      }
+    },
+    "CE": {
+      "nome": "Ceará",
+      "feriados": [
+        {
+          "data": "03-19",
+          "nome": "São José"
+        },
+        {
+          "data": "03-25",
+          "nome": "Data Magna do Ceará"
+        }
+      ],
+      "cidades": {
+        "Fortaleza": [
+          {
+            "data": "04-13",
+            "nome": "Aniversário de Fortaleza"
+          },
+          {
+            "data": "08-15",
+            "nome": "N. Sra. da Assunção"
+          }
+        ],
+        "Juazeiro do Norte": [
+          {
+            "data": "11-01",
+            "nome": "N. Sra. das Dores"
+          }
+        ]
+      }
+    },
+    "DF": {
+      "nome": "Distrito Federal",
+      "feriados": [
+        {
+          "data": "04-21",
+          "nome": "Fundação de Brasília"
+        },
+        {
+          "data": "11-30",
+          "nome": "Dia do Evangélico"
+        }
+      ],
+      "cidades": {}
+    },
+    "ES": {
+      "nome": "Espírito Santo",
+      "feriados": [
+        {
+          "data": "10-28",
+          "nome": "Dia do Servidor Público"
+        }
+      ],
+      "cidades": {
+        "Vila Velha": [
+          {
+            "data": "05-23",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Vitória": [
+          {
+            "data": "09-08",
+            "nome": "Aniversário de Vitória"
+          }
+        ]
+      }
+    },
+    "GO": {
+      "nome": "Goiás",
+      "feriados": [
+        {
+          "data": "07-26",
+          "nome": "Sant'Ana"
+        }
+      ],
+      "cidades": {
+        "Anápolis": [
+          {
+            "data": "07-31",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Goiânia": [
+          {
+            "data": "10-24",
+            "nome": "Fundação de Goiânia"
+          }
+        ]
+      }
+    },
+    "MA": {
+      "nome": "Maranhão",
+      "feriados": [
+        {
+          "data": "07-28",
+          "nome": "Adesão do Maranhão à Independência"
+        },
+        {
+          "data": "12-08",
+          "nome": "N. Sra. da Conceição"
+        }
+      ],
+      "cidades": {
+        "São Luís": [
+          {
+            "data": "06-29",
+            "nome": "São Pedro"
+          },
+          {
+            "data": "09-08",
+            "nome": "Aniversário de São Luís"
+          }
+        ]
+      }
+    },
+    "MG": {
+      "nome": "Minas Gerais",
+      "feriados": [],
+      "cidades": {
+        "Belo Horizonte": [
+          {
+            "data": "08-15",
+            "nome": "N. Sra. da Assunção"
+          },
+          {
+            "data": "12-08",
+            "nome": "N. Sra. da Conceição"
+          },
+          {
+            "data": "12-12",
+            "nome": "Aniversário de BH"
+          }
+        ],
+        "Contagem": [
+          {
+            "data": "05-30",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Juiz de Fora": [
+          {
+            "data": "05-31",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Uberlândia": [
+          {
+            "data": "08-31",
+            "nome": "Aniversário da cidade"
+          }
+        ]
+      }
+    },
+    "MS": {
+      "nome": "Mato Grosso do Sul",
+      "feriados": [
+        {
+          "data": "10-11",
+          "nome": "Criação do Estado"
+        }
+      ],
+      "cidades": {
+        "Campo Grande": [
+          {
+            "data": "08-26",
+            "nome": "Aniversário de Campo Grande"
+          }
+        ]
+      }
+    },
+    "MT": {
+      "nome": "Mato Grosso",
+      "feriados": [],
+      "cidades": {
+        "Cuiabá": [
+          {
+            "data": "04-08",
+            "nome": "Aniversário de Cuiabá"
+          }
+        ]
+      }
+    },
+    "PA": {
+      "nome": "Pará",
+      "feriados": [
+        {
+          "data": "08-15",
+          "nome": "Adesão do Pará à Independência"
+        },
+        {
+          "data": "12-08",
+          "nome": "N. Sra. da Conceição"
+        }
+      ],
+      "cidades": {
+        "Belém": [
+          {
+            "data": "01-12",
+            "nome": "Aniversário de Belém"
+          }
+        ]
+      }
+    },
+    "PB": {
+      "nome": "Paraíba",
+      "feriados": [
+        {
+          "data": "08-05",
+          "nome": "Fundação do Estado"
+        }
+      ],
+      "cidades": {
+        "Campina Grande": [
+          {
+            "data": "10-01",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "João Pessoa": [
+          {
+            "data": "08-05",
+            "nome": "N. Sra. das Neves"
+          }
+        ]
+      }
+    },
+    "PE": {
+      "nome": "Pernambuco",
+      "feriados": [
+        {
+          "data": "03-06",
+          "nome": "Revolução Pernambucana"
+        },
+        {
+          "data": "06-24",
+          "nome": "São João"
+        }
+      ],
+      "cidades": {
+        "Caruaru": [
+          {
+            "data": "05-18",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Olinda": [
+          {
+            "data": "03-12",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Recife": [
+          {
+            "data": "07-16",
+            "nome": "N. Sra. do Carmo"
+          },
+          {
+            "data": "12-08",
+            "nome": "N. Sra. da Conceição"
+          }
+        ]
+      }
+    },
+    "PI": {
+      "nome": "Piauí",
+      "feriados": [
+        {
+          "data": "03-13",
+          "nome": "Batalha do Jenipapo"
+        },
+        {
+          "data": "10-19",
+          "nome": "Dia do Piauí"
+        }
+      ],
+      "cidades": {
+        "Teresina": [
+          {
+            "data": "08-16",
+            "nome": "Aniversário de Teresina"
+          }
+        ]
+      }
+    },
+    "PR": {
+      "nome": "Paraná",
+      "feriados": [
+        {
+          "data": "12-19",
+          "nome": "Emancipação Política do Paraná"
+        }
+      ],
+      "cidades": {
+        "Curitiba": [
+          {
+            "data": "09-08",
+            "nome": "N. Sra. da Luz dos Pinhais"
+          }
+        ],
+        "Londrina": [
+          {
+            "data": "12-10",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Maringá": [
+          {
+            "data": "05-10",
+            "nome": "Aniversário da cidade"
+          }
+        ]
+      }
+    },
+    "RJ": {
+      "nome": "Rio de Janeiro",
+      "feriados": [
+        {
+          "data": "04-23",
+          "nome": "São Jorge"
+        }
+      ],
+      "cidades": {
+        "Duque de Caxias": [
+          {
+            "data": "08-31",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Niterói": [
+          {
+            "data": "11-22",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Petrópolis": [
+          {
+            "data": "03-16",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Rio de Janeiro": [
+          {
+            "data": "01-20",
+            "nome": "São Sebastião"
+          }
+        ]
+      }
+    },
+    "RN": {
+      "nome": "Rio Grande do Norte",
+      "feriados": [
+        {
+          "data": "10-03",
+          "nome": "Mártires de Cunhaú e Uruaçu"
+        },
+        {
+          "data": "11-29",
+          "nome": "Dia do Rio Grande do Norte"
+        }
+      ],
+      "cidades": {
+        "Mossoró": [
+          {
+            "data": "09-30",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Natal": [
+          {
+            "data": "11-21",
+            "nome": "N. Sra. da Apresentação"
+          }
+        ]
+      }
+    },
+    "RO": {
+      "nome": "Rondônia",
+      "feriados": [
+        {
+          "data": "01-04",
+          "nome": "Criação do Estado"
+        },
+        {
+          "data": "06-18",
+          "nome": "Dia do Evangélico"
+        }
+      ],
+      "cidades": {
+        "Porto Velho": [
+          {
+            "data": "10-02",
+            "nome": "Aniversário de Porto Velho"
+          }
+        ]
+      }
+    },
+    "RR": {
+      "nome": "Roraima",
+      "feriados": [
+        {
+          "data": "10-05",
+          "nome": "Criação do Estado"
+        }
+      ],
+      "cidades": {
+        "Boa Vista": [
+          {
+            "data": "07-09",
+            "nome": "Aniversário de Boa Vista"
+          }
+        ]
+      }
+    },
+    "RS": {
+      "nome": "Rio Grande do Sul",
+      "feriados": [
+        {
+          "data": "09-20",
+          "nome": "Revolução Farroupilha"
+        }
+      ],
+      "cidades": {
+        "Caxias do Sul": [
+          {
+            "data": "06-20",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Pelotas": [
+          {
+            "data": "06-07",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Porto Alegre": [
+          {
+            "data": "02-02",
+            "nome": "N. Sra. dos Navegantes"
+          }
+        ]
+      }
+    },
+    "SC": {
+      "nome": "Santa Catarina",
+      "feriados": [
+        {
+          "data": "08-11",
+          "nome": "Criação da Capitania"
+        },
+        {
+          "data": "11-25",
+          "nome": "Santa Catarina de Alexandria"
+        }
+      ],
+      "cidades": {
+        "Blumenau": [
+          {
+            "data": "09-02",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Florianópolis": [
+          {
+            "data": "03-23",
+            "nome": "Aniversário de Florianópolis"
+          }
+        ],
+        "Joinville": [
+          {
+            "data": "03-09",
+            "nome": "Aniversário da cidade"
+          }
+        ]
+      }
+    },
+    "SE": {
+      "nome": "Sergipe",
+      "feriados": [
+        {
+          "data": "07-08",
+          "nome": "Emancipação Política de Sergipe"
+        }
+      ],
+      "cidades": {
+        "Aracaju": [
+          {
+            "data": "03-17",
+            "nome": "Aniversário de Aracaju"
+          }
+        ]
+      }
+    },
+    "SP": {
+      "nome": "São Paulo",
+      "feriados": [
+        {
+          "data": "07-09",
+          "nome": "Revolução Constitucionalista"
+        }
+      ],
+      "cidades": {
+        "Campinas": [
+          {
+            "data": "07-14",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Guarulhos": [
+          {
+            "data": "12-08",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Osasco": [
+          {
+            "data": "02-19",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Ribeirão Preto": [
+          {
+            "data": "06-19",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Santos": [
+          {
+            "data": "01-26",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "Sorocaba": [
+          {
+            "data": "08-15",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "São Bernardo do Campo": [
+          {
+            "data": "08-20",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "São José dos Campos": [
+          {
+            "data": "07-27",
+            "nome": "Aniversário da cidade"
+          }
+        ],
+        "São Paulo": [
+          {
+            "data": "01-25",
+            "nome": "Aniversário de São Paulo"
+          }
+        ]
+      }
+    },
+    "TO": {
+      "nome": "Tocantins",
+      "feriados": [
+        {
+          "data": "09-08",
+          "nome": "N. Sra. da Natividade"
+        },
+        {
+          "data": "10-05",
+          "nome": "Criação do Estado"
+        }
+      ],
+      "cidades": {
+        "Palmas": [
+          {
+            "data": "05-20",
+            "nome": "Aniversário de Palmas"
+          }
+        ]
+      }
+    }
+  }
+}

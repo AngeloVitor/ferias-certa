@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Férias Certa — melhores datas para tirar férias no Brasil</title>
+<meta name="description" content="Descubra as melhores datas para tirar férias nos próximos 12 meses. Cruza feriados nacionais, estaduais e municipais com fins de semana, respeita o art. 134 §3 da CLT e avisa sobre o prazo do período concessivo.">
+<meta name="theme-color" content="#0a0e14">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://feriascerta.com.br/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234cc4ff'/%3E%3Cstop offset='1' stop-color='%238b6cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Crect x='14' y='16' width='36' height='7' rx='3.5' fill='%2305121e'/%3E%3Crect x='14' y='29' width='16' height='7' rx='3.5' fill='%2305121e' opacity='.55'/%3E%3Crect x='34' y='29' width='16' height='7' rx='3.5' fill='%2305121e'/%3E%3Crect x='14' y='42' width='36' height='7' rx='3.5' fill='%2305121e' opacity='.55'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Férias Certa">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Férias Certa">
+<meta property="og:title" content="Férias Certa — melhores datas para tirar férias">
+<meta property="og:description" content="Diga quantos dias você tem e veja as datas que rendem mais folga nos próximos 12 meses, com feriados municipais e as regras da CLT.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Férias Certa — melhores datas para tirar férias">
+<meta name="twitter:description" content="Diga quantos dias você tem e veja as datas que rendem mais folga nos próximos 12 meses.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Férias Certa",
+ "applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"pt-BR",
+ "description":"Otimizador de datas de férias no Brasil com feriados nacionais, estaduais e municipais e as regras da CLT.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"}}
+</script>
+<style>
+  :root{
+    --bg:#0a0e14;
+    --ink:#e9eff7;         /* texto principal */
+    --ink2:#8ea0b6;        /* secundário      */
+    --ink3:#63748a;        /* terciário       */
+    --line:#25303f;
+    --line2:#1a2331;
+    --fill:#18212e;        /* fundo de campo  */
+    --acc:#4cc4ff;
+    --acc2:#8b6cff;
+    --acc-bg:#12324a;
+    --ok:#6ee7b7;  --ok-bg:#0d3a2c;  --ok-line:#14614a;
+    --hol:#fda4c0; --hol-bg:#4a1d33; --hol-line:#7d2f4e;
+    --am:#fcd34d;  --am-bg:#4a380d;
+    --wk:#1e2937;
+    --vac:linear-gradient(150deg,#4cc4ff,#8b6cff);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;color:var(--ink);min-height:100vh;
+    background:
+      radial-gradient(1000px 560px at 10% -14%, #16304a66, transparent 62%),
+      radial-gradient(820px 480px at 94% -4%, #3a2a6b55, transparent 62%),
+      var(--bg);
+    background-attachment:fixed;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+    -webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5;
+  }
+  /* quando instalado como app, respeita notch e barra de gestos do iOS */
+  .wrap{max-width:800px;margin:0 auto;
+    padding:calc(40px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right))
+            calc(100px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left))}
+  b,strong{font-weight:600}
+
+  /* ── cabeçalho ───────────────────────────── */
+  header{margin-bottom:30px}
+  h1{font-size:22px;margin:0;letter-spacing:-.45px;font-weight:650;display:flex;align-items:center;gap:11px}
+  h1 .mark{width:34px;height:34px;border-radius:10px;background:var(--vac);display:grid;
+    place-items:center;font-size:17px;box-shadow:0 6px 20px -8px #4cc4ff99;flex:0 0 auto}
+  .lead{color:var(--ink2);font-size:14px;margin:7px 0 0}
+  .lead b{color:var(--ink);font-weight:550}
+
+  /* ── filtros ─────────────────────────────── */
+  .filters{display:grid;grid-template-columns:1.2fr 1.4fr .8fr 1.2fr;gap:10px}
+  .field{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .field label{font-size:11.5px;color:var(--ink3);font-weight:550;letter-spacing:.15px}
+  select,input[type=number]{
+    appearance:none;-webkit-appearance:none;
+    width:100%;background:var(--fill);border:1px solid var(--line);border-radius:9px;
+    padding:9px 11px;font:inherit;font-size:14.5px;color:var(--ink);
+    transition:border-color .13s,box-shadow .13s;cursor:pointer;
+  }
+  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'><path d='M1 1l4.5 4.5L10 1' stroke='%238ea0b6' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
+  input[type=number]{cursor:text}
+  select:hover,input:hover{border-color:#3a4a63}
+  select:focus,input:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px #4cc4ff26}
+  option{background:#141c28;color:var(--ink)}
+
+  /* só para leitor de tela */
+  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  /* foco visível e consistente em tudo que recebe teclado */
+  :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
+  select:focus-visible,input:focus-visible{outline-offset:1px}
+
+  /* ── ajustes (recolhido) ─────────────────── */
+  .advrow{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-top:14px}
+  .advrow details{flex:1;min-width:0}
+  .link{background:none;border:0;padding:5px 0;font:inherit;font-size:13px;color:var(--ink3);
+    cursor:pointer;font-weight:550;white-space:nowrap;transition:color .13s}
+  .link:hover{color:var(--acc)}
+  .link.ok{color:var(--ok)}
+  .fieldrow{padding-bottom:4px}
+  label.f2{display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:var(--ink)}
+  label.f2 em{font-style:normal;color:var(--ink3);font-weight:400;font-size:12.5px}
+  label.f2 input{max-width:210px}
+  label.f2 i{font-style:normal;color:var(--ink3);font-size:12px;line-height:1.45;margin-top:1px}
+  label.f2 i b{color:var(--ink2);font-weight:600}
+  input[type=date]{appearance:none;-webkit-appearance:none;background:var(--fill);
+    border:1px solid var(--line);border-radius:9px;padding:9px 11px;font:inherit;
+    font-size:14.5px;color:var(--ink);width:100%}
+  input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.62) sepia(.1) saturate(.7);cursor:pointer}
+
+  details.adv{margin-top:0}
+  details.adv summary{
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;list-style:none;
+    font-size:13px;color:var(--ink2);font-weight:550;padding:4px 0;user-select:none;
+  }
+  details.adv summary::-webkit-details-marker{display:none}
+  details.adv summary::before{
+    content:'';width:6px;height:6px;border-right:1.6px solid var(--ink3);border-bottom:1.6px solid var(--ink3);
+    transform:rotate(-45deg);transition:transform .15s;margin-right:2px}
+  details.adv[open] summary::before{transform:rotate(45deg)}
+  details.adv summary:hover{color:var(--ink)}
+  .pill{background:var(--acc-bg);color:var(--acc);font-size:11px;font-weight:600;
+    padding:1px 7px;border-radius:99px}
+  .advbody{display:flex;flex-direction:column;gap:11px;padding:14px 0 4px;
+    margin-top:6px;border-top:1px solid var(--line2)}
+  .chk{display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:13.5px;color:var(--ink)}
+  .chk input{margin:2px 0 0;accent-color:var(--acc);width:15px;height:15px;cursor:pointer;flex:0 0 auto}
+  .chk i{font-style:normal;display:block;color:var(--ink3);font-size:12px;margin-top:1px;line-height:1.45}
+
+  /* ── abas ────────────────────────────────── */
+  nav.tabs{display:flex;gap:22px;margin:30px 0 0;border-bottom:1px solid var(--line)}
+  nav.tabs button{
+    background:none;border:0;padding:0 0 11px;margin-bottom:-1px;font:inherit;font-size:14px;
+    color:var(--ink3);font-weight:550;cursor:pointer;border-bottom:2px solid transparent;transition:color .13s}
+  nav.tabs button:hover{color:var(--ink2)}
+  nav.tabs button.on{color:var(--acc);border-bottom-color:var(--acc)}
+  .tab{display:none;padding-top:22px}
+  .tab.on{display:block}
+
+  /* ── resumo ──────────────────────────────── */
+  .resumo{font-size:13.5px;color:var(--ink2);margin:0 0 20px;line-height:1.6}
+  .resumo b{color:var(--ink)}
+
+  /* ── dividir em períodos ─────────────────── */
+  .split{margin-top:16px}
+  label.sw{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+  label.sw input{position:absolute;opacity:0;width:0;height:0}
+  .track{width:38px;height:22px;border-radius:99px;background:var(--fill);
+    border:1px solid var(--line);position:relative;flex:0 0 auto;transition:all .16s}
+  .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
+    background:var(--ink3);transition:all .16s}
+  label.sw input:checked + .track{background:var(--acc-bg);border-color:#2f6c93}
+  label.sw input:checked + .track .knob{left:18px;background:var(--acc)}
+  label.sw input:focus-visible + .track{outline:2px solid var(--acc);outline-offset:3px}
+  .swtxt{font-size:13.5px;color:var(--ink2);font-weight:550}
+  label.sw input:checked ~ .swtxt{color:var(--ink)}
+
+  .splitopts{margin-top:12px;padding-left:48px}
+  .seg{display:inline-flex;background:var(--fill);border:1px solid var(--line);
+    border-radius:10px;padding:3px;gap:2px}
+  .seg button{background:none;border:0;padding:7px 13px;border-radius:7px;font:inherit;
+    font-size:13px;color:var(--ink3);font-weight:550;cursor:pointer;white-space:nowrap;transition:all .14s}
+  .seg button:hover{color:var(--ink2)}
+  .seg button.on{background:var(--acc-bg);color:var(--acc)}
+  .partes{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:11px}
+  .partes input{width:62px;text-align:center;padding:8px 6px;font-size:14.5px;
+    font-variant-numeric:tabular-nums}
+  .partes .mais-sinal{color:var(--ink3);font-size:14px;font-weight:600}
+  .partes .igual{color:var(--ink3);font-size:12.5px;margin-left:5px}
+  .partes .igual b{color:var(--ink2)}
+  .splitinfo{margin:9px 0 0;font-size:12.5px;color:var(--ink3);line-height:1.55}
+  .splitinfo b{color:var(--ink2)}
+  .splitinfo .alerta{color:var(--am)}
+
+  /* ── barra de ordenação e filtro ─────────── */
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
+    padding:0 0 18px;margin-bottom:4px;border-bottom:1px solid var(--line2)}
+  .toolbar label{display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink3);font-weight:550;white-space:nowrap}
+  .toolbar select{width:auto;padding:6px 28px 6px 9px;font-size:13px;border-radius:8px;
+    background-position:right 8px center}
+  .toolbar select:not([value=""]){color:var(--ink)}
+  .toolbar select.ativo{border-color:#3a5a78;color:var(--acc)}
+
+  /* ── lista de janelas ────────────────────── */
+  ol.list{list-style:none;margin:0;padding:0}
+  /* o "recuo negativo + padding" dá área de hover sem estourar a largura */
+  .w{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:6px 16px;align-items:start;
+    margin:0 -14px;padding:20px 14px;border-top:1px solid var(--line2);
+    border-radius:10px;cursor:pointer;transition:background .13s}
+  .w:first-child{border-top:0}
+  .w:hover{background:#ffffff08}
+  .wn{font-size:13px;color:var(--ink3);font-weight:600;padding-top:3px;font-variant-numeric:tabular-nums}
+  .w:first-child .wn{color:var(--am)}
+  .list.data .w:first-child .wn{color:var(--ink3)}
+  .wmain{min-width:0}
+  .wdate{font-size:17.5px;font-weight:600;letter-spacing:-.35px;line-height:1.3}
+  .wdate em{font-style:normal;color:var(--ink3);font-weight:500}
+  .wsub{font-size:13px;color:var(--ink2);margin-top:3px}
+  .wgain{font-size:12.5px;color:var(--ink3);margin-top:2px}
+  .wgain .up{color:var(--ok);font-weight:550}
+  .wgain .warn{color:var(--am);font-weight:550}
+  .wgain .hot{color:#fb923c;font-weight:550}
+  .wgain .top{color:var(--am);font-weight:600}
+  .list.data .w.melhor .wn{color:var(--am)}
+  .wgain .bad{color:#fb7185;font-weight:600}
+  .w.fora{opacity:.62}
+  .w.fora .wnum b{color:#fb7185}
+  .wnum{text-align:right;flex:0 0 auto;padding-top:1px}
+  .wnum b{display:block;font-size:26px;font-weight:650;letter-spacing:-1px;line-height:1;
+    color:var(--ok);font-variant-numeric:tabular-nums}
+  .wnum span{display:block;font-size:11px;color:var(--ink3);margin-top:3px;white-space:nowrap}
+  .wics{background:none;border:0;padding:5px 0 0;font:inherit;font-size:11.5px;color:var(--ink3);
+    cursor:pointer;text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--line)}
+  .wics:hover{color:var(--acc);text-decoration-color:var(--acc)}
+
+  /* ── faixa de dias ───────────────────────── */
+  /* --sq encolhe nos cortes menores; a faixa ocupa da 2ª coluna até o fim */
+  .strip{--sq:23px;grid-column:2/-1;display:flex;gap:2px;flex-wrap:wrap;margin-top:4px}
+  .d{width:var(--sq);height:calc(var(--sq) + 4px);border-radius:5px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-size:calc(var(--sq) * .44);font-weight:600;line-height:1.05;
+    background:var(--wk);color:var(--ink3);font-variant-numeric:tabular-nums}
+  .d small{font-size:calc(var(--sq) * .31);opacity:.7;font-weight:600}
+  .d.vac{background:var(--vac);color:#05121e}
+  .d.free{background:var(--ok-bg);color:var(--ok)}
+  .d.hol{background:var(--hol-bg);color:var(--hol)}
+  .d.meio{background:linear-gradient(180deg,var(--am-bg) 50%,var(--wk) 50%);color:var(--am)}
+
+  /* linhas de um plano com vários períodos */
+  .per{display:grid;grid-template-columns:16px 1fr auto;gap:10px;align-items:baseline;
+    padding:7px 0;border-top:1px dashed var(--line2)}
+  .per:first-of-type{border-top:0;padding-top:9px}
+  .pern{font-size:11px;color:var(--ink3);font-weight:650;font-variant-numeric:tabular-nums}
+  .perd{font-size:14px;font-weight:550;letter-spacing:-.2px}
+  .perd em{font-style:normal;color:var(--ink3);font-weight:450}
+  .perm{font-size:12px;color:var(--ink3);margin-top:1px}
+  .perx{font-size:12.5px;color:var(--ok);font-weight:600;white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+
+  .mais{display:block;width:100%;margin-top:22px;padding:11px;background:var(--fill);
+    border:1px solid var(--line);border-radius:9px;font:inherit;font-size:13.5px;
+    color:var(--ink2);font-weight:550;cursor:pointer;transition:all .13s}
+  .mais:hover{border-color:var(--acc);color:var(--acc)}
+
+  /* ── calendário ──────────────────────────── */
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;font-size:12px;color:var(--ink3)}
+  .legend i{width:9px;height:9px;border-radius:3px;display:inline-block;vertical-align:0;margin-right:5px}
+  .cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px 18px}
+  .mon{padding-bottom:4px}
+  .mont{font-size:12.5px;font-weight:600;margin-bottom:7px;display:flex;
+    justify-content:space-between;align-items:baseline;gap:6px}
+  .mont em{font-style:normal;color:var(--ink3);font-weight:500;font-size:11px}
+  .mont em.hoje{color:var(--acc);font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
+  .dow{font-size:9px;color:var(--ink3);text-align:center;font-weight:600;padding-bottom:2px}
+  .cd{aspect-ratio:1;display:grid;place-items:center;font-size:10.5px;border-radius:4px;
+    color:var(--ink2);font-variant-numeric:tabular-nums}
+  .cd.pad{visibility:hidden}
+  .cd.passou{color:#2b3646}
+  .cd.wk{color:var(--ink3)}
+  .cd.hol{background:var(--hol-bg);color:var(--hol);font-weight:600}
+  .cd.meio{background:linear-gradient(180deg,var(--am-bg) 55%,transparent 55%);color:var(--am);font-weight:600}
+  .cd.vac{background:var(--vac);color:#05121e;font-weight:700}
+  .cd.free{background:var(--ok-bg);color:var(--ok);font-weight:600}
+  .cd.hj{box-shadow:inset 0 0 0 1.5px var(--acc);color:var(--acc);font-weight:700}
+
+  /* ── feriados ────────────────────────────── */
+  .hl{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:0 26px}
+  .hi{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line2);font-size:13.5px}
+  .hi .dt{color:var(--acc);font-size:12.5px;min-width:56px;font-variant-numeric:tabular-nums;font-weight:550}
+  .hi .nm{flex:1;min-width:0}
+  .hi .sc{font-size:11.5px;color:var(--ink3)}
+  .hi.we{opacity:.42}
+  .hi.we .dt{color:var(--ink3)}
+  .hi.we .nm{text-decoration:line-through;text-decoration-color:var(--line)}
+
+  .note{font-size:12.5px;color:var(--ink3);line-height:1.65;margin-top:26px;
+    padding-top:16px;border-top:1px solid var(--line2)}
+  .empty{padding:40px 0;color:var(--ink2);font-size:14px;line-height:1.7}
+
+  /* ── rodapé / metodologia ────────────────── */
+  footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line2)}
+  details.sobre summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    list-style:none;font-size:13px;color:var(--ink3);font-weight:550;padding:4px 0}
+  details.sobre summary::-webkit-details-marker{display:none}
+  details.sobre summary::before{content:'';width:6px;height:6px;
+    border-right:1.6px solid var(--ink3);border-bottom:1.6px solid var(--ink3);
+    transform:rotate(-45deg);transition:transform .15s}
+  details.sobre[open] summary::before{transform:rotate(45deg)}
+  details.sobre summary:hover{color:var(--ink2)}
+  .sobrebody{padding-top:12px;max-width:640px}
+  .sobrebody p{font-size:12.5px;color:var(--ink3);line-height:1.65;margin:0 0 10px}
+  .sobrebody p b{color:var(--ink2)}
+  .sobrebody .aviso{margin-top:16px;padding-top:12px;border-top:1px solid var(--line2);color:var(--ink3)}
+  .sobrebody .ver{margin-top:14px;font-size:11.5px;opacity:.8}
+
+  /* ═══ responsivo ═══════════════════════════ */
+
+  /* tablet / janela estreita: campos em 2×2 */
+  @media(max-width:700px){
+    .filters{grid-template-columns:1fr 1fr;gap:10px 12px}
+  }
+
+  /* celular: sem a coluna do número de ordem, faixa em largura total */
+  @media(max-width:620px){
+    .wrap{padding:calc(26px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right))
+            calc(64px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left))}
+    h1{font-size:20px;gap:9px}
+    h1 .mark{width:30px;height:30px;font-size:15px;border-radius:9px}
+    .lead{font-size:13px}
+    nav.tabs{gap:16px;margin-top:26px;
+      overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+    nav.tabs::-webkit-scrollbar{display:none}
+    nav.tabs button{white-space:nowrap}
+    .advrow{flex-wrap:wrap;gap:4px 16px}
+    .w{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;margin:0 -10px;padding:16px 10px}
+    .wn{display:none}
+    .strip{grid-column:1/-1;--sq:21px;margin-top:9px}
+    .wdate{font-size:16.5px}
+    .wsub,.wgain{font-size:12.5px}
+    .wnum b{font-size:23px}
+    .cal{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+    .hl{grid-template-columns:1fr}
+  }
+
+  /* celular pequeno (320–380px) */
+  @media(max-width:400px){
+    .wrap{padding:calc(22px + env(safe-area-inset-top)) calc(13px + env(safe-area-inset-right))
+            calc(56px + env(safe-area-inset-bottom)) calc(13px + env(safe-area-inset-left))}
+    .strip{--sq:19px;gap:1.5px}
+    .filters{gap:9px 10px}
+    .wnum b{font-size:21px}
+    .cd{font-size:9.5px}
+    .dow{font-size:8px}
+  }
+  /* telas bem estreitas: Estado e Cidade ocupam a linha toda,
+     Dias e Mês dividem a última — empilhar os quatro afundaria os resultados */
+  @media(max-width:340px){
+    .field:nth-child(1),.field:nth-child(2){grid-column:1/-1}
+    .cal{grid-template-columns:1fr}
+    .strip{--sq:18px}
+  }
+
+  /* telas grandes: mais respiro e calendário em 5 colunas */
+  @media(min-width:1080px){
+    .wrap{max-width:920px;padding-top:52px}
+    .cal{grid-template-columns:repeat(5,minmax(0,1fr))}
+  }
+
+  /* toque: alvos maiores e fonte 16px nos campos (evita o zoom do iOS) */
+  @media(hover:none) and (pointer:coarse){
+    select,input[type=number]{padding:12px 12px;font-size:16px;border-radius:10px}
+    select{padding-right:32px}
+    nav.tabs button{padding-bottom:13px;font-size:14.5px}
+    details.adv summary{padding:8px 0;font-size:14px}
+    .chk{gap:11px;padding:3px 0;font-size:14px}
+    .chk input{width:18px;height:18px}
+    .wics{padding-top:8px;font-size:12.5px}
+    .link{padding:9px 0;font-size:13.5px}
+    label.f2 input{max-width:none}
+    .mais{padding:14px}
+    .w:hover{background:none}
+    .w:active{background:#ffffff0d}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+
+  /* ── banner instalar PWA ─────────────────── */
+  .pwa{
+    position:fixed;left:0;right:0;bottom:0;z-index:40;
+    padding:12px calc(16px + env(safe-area-inset-right))
+            calc(12px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+    background:linear-gradient(180deg,transparent,#0a0e14ee 28%,#0a0e14);
+    pointer-events:none;
+  }
+  .pwa[hidden]{display:none!important}
+  .pwainner{
+    pointer-events:auto;max-width:800px;margin:0 auto;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    background:var(--fill);border:1px solid var(--line);border-radius:14px;
+    padding:12px 14px;box-shadow:0 -8px 32px -12px #000a;
+  }
+  .pwainner p{margin:0;flex:1;min-width:180px;font-size:13px;color:var(--ink2);line-height:1.45}
+  .pwainner p b{color:var(--ink);font-weight:600}
+  .pwact{display:flex;gap:8px;flex:0 0 auto}
+  .pwact button{
+    border:0;border-radius:9px;padding:9px 12px;font:inherit;font-size:13px;
+    font-weight:600;cursor:pointer;
+  }
+  .pwact .go{background:var(--vac);color:#05121e}
+  .pwact .no{background:transparent;color:var(--ink3);border:1px solid var(--line)}
+  .pwact .no:hover{color:var(--ink2)}
+
+  .wicsrow{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+  .wrh{
+    background:none;border:0;padding:4px 0 0;font:inherit;font-size:11.5px;
+    color:var(--ink3);font-weight:600;cursor:pointer;white-space:nowrap;
+  }
+  .wrh:hover{color:var(--acc)}
+  .baseaviso{
+    margin:0 0 14px;padding:9px 12px;border-radius:10px;
+    background:var(--am-bg);color:var(--am);font-size:12.5px;line-height:1.45;
+  }
+  .baseaviso[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1><span class="mark">🏖️</span> Férias Certa</h1>
+  <p class="lead" id="lead"></p>
+</header>
+
+<div class="filters">
+  <div class="field"><label for="uf">Estado</label><select id="uf"></select></div>
+  <div class="field"><label for="cid">Cidade</label><select id="cid"></select></div>
+  <div class="field"><label for="dias">Dias</label><input type="number" id="dias" min="1" max="60" value="15" autocomplete="off"></div>
+  <div class="field"><label for="mes">Mês</label><select id="mes"></select></div>
+</div>
+
+<div class="split">
+  <label class="sw">
+    <input type="checkbox" id="dividir" onchange="calc()">
+    <span class="track"><span class="knob"></span></span>
+    <span class="swtxt">Dividir em mais de um período</span>
+  </label>
+  <div class="splitopts" id="splitopts" hidden>
+    <div class="seg" role="radiogroup" aria-label="Quantos períodos">
+      <button role="radio" aria-checked="false" data-n="1" onclick="setPartes(1)">1 período</button>
+      <button role="radio" aria-checked="true"  data-n="2" onclick="setPartes(2)" class="on">2 períodos</button>
+      <button role="radio" aria-checked="false" data-n="3" onclick="setPartes(3)">3 períodos</button>
+    </div>
+    <div class="partes" id="partes"></div>
+    <p class="splitinfo" id="splitinfo"></p>
+  </div>
+</div>
+
+<div class="advrow">
+<details class="adv">
+  <summary>Ajustes <span class="pill" id="advCount" hidden></span></summary>
+  <div class="advbody">
+    <div class="fieldrow">
+      <label class="f2" for="aquis">Fim do meu período aquisitivo <em>(opcional)</em>
+        <input type="date" id="aquis" autocomplete="off" onchange="calc()">
+        <i>A CLT te dá 12 meses depois dessa data para <b>começar</b> as férias (art. 137). Passou disso, o empregador paga em dobro — e você fica sem descansar.</i>
+      </label>
+    </div>
+    <label class="chk"><input type="checkbox" id="aviso" checked onchange="calc()">
+      <span>Respeitar o aviso de 30 dias<i>O art. 135 exige comunicação por escrito com 30 dias de antecedência. Sem isso, datas muito próximas aparecem mas você não consegue pedir.</i></span></label>
+    <label class="chk"><input type="checkbox" id="fac" checked onchange="calc()">
+      <span>Contar Carnaval e Corpus Christi<i>São pontos facultativos, mas a maioria das empresas folga.</i></span></label>
+    <label class="chk"><input type="checkbox" id="art" checked onchange="calc()">
+      <span>Respeitar o art. 134 §3 da CLT<i>Proíbe começar férias nos 2 dias antes de feriado ou descanso — na prática, só segunda, terça ou quarta.</i></span></label>
+    <label class="chk"><input type="checkbox" id="sab" onchange="calc()">
+      <span>Trabalho aos sábados<i>Sábado passa a contar como dia útil.</i></span></label>
+    <label class="chk"><input type="checkbox" id="meio" onchange="calc()">
+      <span>Meio expediente conta como folga<i>Quarta de Cinzas parcial, vésperas de Natal e Ano-Novo.</i></span></label>
+    <label class="chk"><input type="checkbox" id="loc" onchange="calc()">
+      <span>Incluir festas locais<i>Círio em Belém, Bonfim em Salvador, São João em Campina Grande e Caruaru. Não são feriado pleno na lei — confirme.</i></span></label>
+  </div>
+</details>
+<button class="link" id="copiar" onclick="copiarLink()">Copiar link</button>
+</div>
+
+<nav class="tabs" role="tablist" aria-label="Seções">
+  <button role="tab" id="tb-janelas" aria-controls="t-janelas" aria-selected="true" class="on" onclick="tab('janelas',this)">Melhores datas</button>
+  <button role="tab" id="tb-cal" aria-controls="t-cal" aria-selected="false" tabindex="-1" onclick="tab('cal',this)">Calendário</button>
+  <button role="tab" id="tb-feriados" aria-controls="t-feriados" aria-selected="false" tabindex="-1" onclick="tab('feriados',this)">Feriados</button>
+</nav>
+
+<section id="t-janelas" class="tab on" role="tabpanel" aria-labelledby="tb-janelas">
+  <h2 class="sr">Melhores datas para tirar férias</h2>
+  <p class="baseaviso" id="baseAviso" hidden role="status"></p>
+  <p class="resumo" id="resumo" role="status" aria-live="polite"></p>
+  <div class="toolbar">
+    <label>Ordenar
+      <select id="ord" onchange="calc()">
+        <option value="">Melhores primeiro</option>
+        <option value="data">Por data</option>
+      </select>
+    </label>
+    <label>Temporada
+      <select id="temp" onchange="calc()">
+        <option value="">Tanto faz</option>
+        <option value="evitar">Evitar alta temporada</option>
+        <option value="so">Só alta temporada</option>
+      </select>
+    </label>
+  </div>
+  <ol class="list" id="janelas"></ol>
+  <button class="mais" id="mais" hidden onclick="verMais()"></button>
+</section>
+
+<section id="t-cal" class="tab" role="tabpanel" aria-labelledby="tb-cal">
+  <h2 class="sr">Calendário dos próximos 12 meses</h2>
+  <div class="legend">
+    <span><i style="background:var(--vac)"></i>Férias</span>
+    <span><i style="background:var(--ok-bg);box-shadow:inset 0 0 0 1px var(--ok-line)"></i>Folga de graça</span>
+    <span><i style="background:var(--hol-bg);box-shadow:inset 0 0 0 1px var(--hol-line)"></i>Feriado</span>
+    <span><i style="background:var(--am-bg);box-shadow:inset 0 0 0 1px #7d5f14"></i>Meio expediente</span>
+  </div>
+  <div class="cal" id="cal"></div>
+</section>
+
+<section id="t-feriados" class="tab" role="tabpanel" aria-labelledby="tb-feriados">
+  <h2 class="sr">Feriados dos próximos 12 meses</h2>
+  <p class="resumo" id="ferSub" role="status" aria-live="polite"></p>
+  <div class="hl" id="fers"></div>
+  <p class="note">Feriados municipais e pontos facultativos mudam por decreto local e por convenção coletiva. Os dados cobrem as capitais e principais cidades — confirme com o RH antes de fechar passagem.</p>
+</section>
+
+<footer>
+  <details class="sobre">
+    <summary>Como as contas são feitas</summary>
+    <div class="sobrebody">
+      <p><b>Dias corridos.</b> O saldo é contado em dias corridos, como manda a CLT: fins de semana e feriados dentro do período saem do seu saldo. Por isso o app procura períodos que <i>encostam</i> em feriado em vez de engoli-lo.</p>
+      <p><b>Art. 134 §3.</b> É vedado iniciar as férias nos dois dias que antecedem feriado ou dia de repouso semanal. Para quem folga sábado e domingo, sobram segunda, terça e quarta.</p>
+      <p><b>Art. 135.</b> A concessão precisa ser comunicada por escrito com 30 dias de antecedência — por isso datas mais próximas que isso ficam de fora por padrão.</p>
+      <p><b>Art. 137.</b> As férias precisam <i>começar</i> dentro dos 12 meses seguintes ao fim do período aquisitivo. Depois disso são devidas em dobro.</p>
+      <p><b>Feriados móveis.</b> Páscoa pelo algoritmo de Meeus/Jones/Butcher; Carnaval, Sexta-feira Santa, Quarta de Cinzas e Corpus Christi derivam dela.</p>
+      <p><b>Quarta-feira de Cinzas.</b> Ponto facultativo o dia inteiro em 14 estados; nos demais o expediente volta às 12h, 13h ou 14h conforme o decreto estadual.</p>
+      <p><b>Alta temporada.</b> Férias escolares (julho e de 15/dez a 31/jan), semana do Carnaval e Semana Santa.</p>
+      <p class="aviso">Esta é uma ferramenta de apoio ao planejamento, não uma consultoria jurídica ou trabalhista. Confirme sempre com o RH da sua empresa e com a convenção coletiva da sua categoria.</p>
+      <p class="ver">Base de feriados <b id="verData"></b> · <span id="verCidades"></span></p>
+    </div>
+  </details>
+</footer>
+
+</div>
+
+<div class="pwa" id="pwa" hidden>
+  <div class="pwainner" role="region" aria-label="Instalar aplicativo">
+    <p id="pwaTxt"><b>Instale o Férias Certa</b> na tela inicial — abre sem navegador e funciona offline.</p>
+    <div class="pwact">
+      <button type="button" class="go" id="pwaGo">Instalar</button>
+      <button type="button" class="no" id="pwaNo" aria-label="Dispensar">Agora não</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   1. BASE DE FERIADOS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Versão da base de feriados. Quando web, Android e iOS consumirem o mesmo
+   feriados.json, é este campo que diz se o cliente está desatualizado. */
+const DADOS = {versao:'2026.08', revisado:'agosto de 2026'};
+
+const NACIONAIS = [
+  ['01-01','Confraternização Universal'],
+  ['04-21','Tiradentes'],
+  ['05-01','Dia do Trabalho'],
+  ['09-07','Independência do Brasil'],
+  ['10-12','Nossa Senhora Aparecida'],
+  ['11-02','Finados'],
+  ['11-15','Proclamação da República'],
+  ['11-20','Consciência Negra'],
+  ['12-25','Natal'],
+];
+
+const UFS = {
+  AC:{n:'Acre',f:[['01-23','Dia do Evangélico'],['06-15','Aniversário do Acre'],['09-05','Dia da Amazônia'],['11-17','Tratado de Petrópolis']],
+      c:{'Rio Branco':[['12-28','Aniversário de Rio Branco']]}},
+  AL:{n:'Alagoas',f:[['06-24','São João'],['06-29','São Pedro'],['09-16','Emancipação Política de Alagoas']],
+      c:{'Maceió':[['12-05','Aniversário de Maceió']]}},
+  AP:{n:'Amapá',f:[['03-19','São José'],['07-25','São Tiago'],['10-05','Criação do Estado']],
+      c:{'Macapá':[['02-04','Aniversário de Macapá']]}},
+  AM:{n:'Amazonas',f:[['09-05','Elevação do Amazonas a Província'],['12-08','N. Sra. da Conceição']],
+      c:{'Manaus':[['10-24','Aniversário de Manaus']]}},
+  BA:{n:'Bahia',f:[['07-02','Independência da Bahia']],
+      c:{'Salvador':[['12-08','N. Sra. da Conceição da Praia']],'Feira de Santana':[['09-18','Aniversário da cidade']]}},
+  CE:{n:'Ceará',f:[['03-19','São José'],['03-25','Data Magna do Ceará']],
+      c:{'Fortaleza':[['04-13','Aniversário de Fortaleza'],['08-15','N. Sra. da Assunção']],'Juazeiro do Norte':[['11-01','N. Sra. das Dores']]}},
+  DF:{n:'Distrito Federal',f:[['04-21','Fundação de Brasília'],['11-30','Dia do Evangélico']],c:{}},
+  ES:{n:'Espírito Santo',f:[['10-28','Dia do Servidor Público']],
+      c:{'Vitória':[['09-08','Aniversário de Vitória']],'Vila Velha':[['05-23','Aniversário da cidade']]}},
+  GO:{n:'Goiás',f:[['07-26','Sant\'Ana']],
+      c:{'Goiânia':[['10-24','Fundação de Goiânia']],'Anápolis':[['07-31','Aniversário da cidade']]}},
+  MA:{n:'Maranhão',f:[['07-28','Adesão do Maranhão à Independência'],['12-08','N. Sra. da Conceição']],
+      c:{'São Luís':[['06-29','São Pedro'],['09-08','Aniversário de São Luís']]}},
+  MT:{n:'Mato Grosso',f:[],c:{'Cuiabá':[['04-08','Aniversário de Cuiabá']]}},
+  MS:{n:'Mato Grosso do Sul',f:[['10-11','Criação do Estado']],
+      c:{'Campo Grande':[['08-26','Aniversário de Campo Grande']]}},
+  MG:{n:'Minas Gerais',f:[],
+      c:{'Belo Horizonte':[['08-15','N. Sra. da Assunção'],['12-08','N. Sra. da Conceição'],['12-12','Aniversário de BH']],
+         'Uberlândia':[['08-31','Aniversário da cidade']],'Juiz de Fora':[['05-31','Aniversário da cidade']],
+         'Contagem':[['05-30','Aniversário da cidade']]}},
+  PA:{n:'Pará',f:[['08-15','Adesão do Pará à Independência'],['12-08','N. Sra. da Conceição']],
+      c:{'Belém':[['01-12','Aniversário de Belém']]}},
+  PB:{n:'Paraíba',f:[['08-05','Fundação do Estado']],
+      c:{'João Pessoa':[['08-05','N. Sra. das Neves']],'Campina Grande':[['10-01','Aniversário da cidade']]}},
+  PR:{n:'Paraná',f:[['12-19','Emancipação Política do Paraná']],
+      c:{'Curitiba':[['09-08','N. Sra. da Luz dos Pinhais']],'Londrina':[['12-10','Aniversário da cidade']],
+         'Maringá':[['05-10','Aniversário da cidade']]}},
+  PE:{n:'Pernambuco',f:[['03-06','Revolução Pernambucana'],['06-24','São João']],
+      c:{'Recife':[['07-16','N. Sra. do Carmo'],['12-08','N. Sra. da Conceição']],
+         'Olinda':[['03-12','Aniversário da cidade']],'Caruaru':[['05-18','Aniversário da cidade']]}},
+  PI:{n:'Piauí',f:[['03-13','Batalha do Jenipapo'],['10-19','Dia do Piauí']],
+      c:{'Teresina':[['08-16','Aniversário de Teresina']]}},
+  RJ:{n:'Rio de Janeiro',f:[['04-23','São Jorge']],
+      c:{'Rio de Janeiro':[['01-20','São Sebastião']],'Niterói':[['11-22','Aniversário da cidade']],
+         'Petrópolis':[['03-16','Aniversário da cidade']],'Duque de Caxias':[['08-31','Aniversário da cidade']]}},
+  RN:{n:'Rio Grande do Norte',f:[['10-03','Mártires de Cunhaú e Uruaçu'],['11-29','Dia do Rio Grande do Norte']],
+      c:{'Natal':[['11-21','N. Sra. da Apresentação']],'Mossoró':[['09-30','Aniversário da cidade']]}},
+  RS:{n:'Rio Grande do Sul',f:[['09-20','Revolução Farroupilha']],
+      c:{'Porto Alegre':[['02-02','N. Sra. dos Navegantes']],'Caxias do Sul':[['06-20','Aniversário da cidade']],
+         'Pelotas':[['06-07','Aniversário da cidade']]}},
+  RO:{n:'Rondônia',f:[['01-04','Criação do Estado'],['06-18','Dia do Evangélico']],
+      c:{'Porto Velho':[['10-02','Aniversário de Porto Velho']]}},
+  RR:{n:'Roraima',f:[['10-05','Criação do Estado']],
+      c:{'Boa Vista':[['07-09','Aniversário de Boa Vista']]}},
+  SC:{n:'Santa Catarina',f:[['08-11','Criação da Capitania'],['11-25','Santa Catarina de Alexandria']],
+      c:{'Florianópolis':[['03-23','Aniversário de Florianópolis']],'Joinville':[['03-09','Aniversário da cidade']],
+         'Blumenau':[['09-02','Aniversário da cidade']]}},
+  SP:{n:'São Paulo',f:[['07-09','Revolução Constitucionalista']],
+      c:{'São Paulo':[['01-25','Aniversário de São Paulo']],'Campinas':[['07-14','Aniversário da cidade']],
+         'Guarulhos':[['12-08','Aniversário da cidade']],'Santos':[['01-26','Aniversário da cidade']],
+         'São Bernardo do Campo':[['08-20','Aniversário da cidade']],'Ribeirão Preto':[['06-19','Aniversário da cidade']],
+         'Sorocaba':[['08-15','Aniversário da cidade']],'Osasco':[['02-19','Aniversário da cidade']],
+         'São José dos Campos':[['07-27','Aniversário da cidade']]}},
+  SE:{n:'Sergipe',f:[['07-08','Emancipação Política de Sergipe']],
+      c:{'Aracaju':[['03-17','Aniversário de Aracaju']]}},
+  TO:{n:'Tocantins',f:[['09-08','N. Sra. da Natividade'],['10-05','Criação do Estado']],
+      c:{'Palmas':[['05-20','Aniversário de Palmas']]}},
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   2. DATAS
+   ═══════════════════════════════════════════════════════════════ */
+
+const MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const MESC =['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const DOWC =['D','S','T','Q','Q','S','S'];
+const DOWN =['dom','seg','ter','qua','qui','sex','sáb'];
+const DOWF =['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+
+// Algoritmo de Meeus/Jones/Butcher — domingo de Páscoa
+function pascoa(y){
+  const a=y%19, b=Math.floor(y/100), c=y%100, d=Math.floor(b/4), e=b%4,
+        f=Math.floor((b+8)/25), g=Math.floor((b-f+1)/3),
+        h=(19*a+b-d-g+15)%30, i=Math.floor(c/4), k=c%4,
+        l=(32+2*e+2*i-h-k)%7, m=Math.floor((a+11*h+22*l)/451),
+        mo=Math.floor((h+l-7*m+114)/31), da=((h+l-7*m+114)%31)+1;
+  return new Date(y,mo-1,da);
+}
+const add=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+const key=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const fmt=d=>d.getDate()+'/'+MESC[d.getMonth()];
+const fmtL=d=>d.getDate()+' de '+MESES[d.getMonth()];
+// com ano — o intervalo atravessa a virada, então o ano importa
+const fmtA=d=>d.getDate()+' de '+MESES[d.getMonth()]+' de '+d.getFullYear();
+
+/* Quarta-feira de Cinzas: ponto facultativo o DIA INTEIRO nestes estados.
+   Nos demais o expediente volta no horário abaixo (regra federal: 14h). */
+const CINZAS_INTEIRO=['AC','AL','AP','AM','BA','ES','MA','MG','PE','PI','RJ','RO','RR','SE'];
+const CINZAS_HORA={DF:'14h',GO:'14h',MT:'14h',PR:'14h',RN:'14h',SC:'14h',
+                   CE:'13h',MS:'13h',RS:'13h',PA:'12h',PB:'12h',SP:'12h',TO:'12h'};
+
+/* Festas locais fortes — na prática a cidade para, mas nem sempre é feriado
+   pleno na lei. Entram só se o usuário ligar a chave. */
+function eventosLocais(y, uf, cidade){
+  const nth=(mes,dow,n)=>{ const d=new Date(y,mes,1); let c=0;
+    for(;;){ if(d.getDay()===dow && ++c===n) return new Date(d); d.setDate(d.getDate()+1); } };
+  const L=[];
+  switch(cidade){
+    case 'Belém':          L.push([add(nth(9,0,2),1),'Segunda-feira do Círio']); break;
+    case 'Salvador':       L.push([nth(0,4,2),'Lavagem do Bonfim'],[new Date(y,1,2),'Festa de Iemanjá']); break;
+    case 'Campina Grande': L.push([new Date(y,5,24),'São João de Campina Grande']); break;
+    case 'Caruaru':        L.push([new Date(y,5,24),'São João de Caruaru']); break;
+    case 'Olinda':         L.push([add(pascoa(y),-51),'Sexta pré-carnaval (Olinda)']); break;
+    case 'Manaus':         L.push([new Date(y,5,29),'Festival de Parintins (semana)']); break;
+  }
+  return L;
+}
+
+// opts = {fac, meio, loc}
+function feriadosDoAno(y, uf, cidade, opts){
+  const o=opts||{};
+  const h={};
+  const put=(d,n,s)=>{const k=key(d); if(!h[k]) h[k]={n,s}; };
+
+  for(const [md,n] of NACIONAIS){
+    const [mm,dd]=md.split('-').map(Number);
+    put(new Date(y,mm-1,dd),n,'nacional');
+  }
+  const p=pascoa(y);
+  put(add(p,-2),'Sexta-feira Santa','nacional');
+
+  if(uf && UFS[uf]) for(const [md,n] of UFS[uf].f){
+    const [mm,dd]=md.split('-').map(Number);
+    put(new Date(y,mm-1,dd),n,'estadual');
+  }
+  if(uf && cidade && UFS[uf] && UFS[uf].c[cidade]) for(const [md,n] of UFS[uf].c[cidade]){
+    const [mm,dd]=md.split('-').map(Number);
+    put(new Date(y,mm-1,dd),n,'municipal');
+  }
+  if(o.loc) for(const [d,n] of eventosLocais(y,uf,cidade)) put(d,n,'local');
+
+  if(o.fac){
+    put(add(p,-48),'Carnaval (segunda)','facultativo');
+    put(add(p,-47),'Carnaval (terça)','facultativo');
+    put(add(p,60),'Corpus Christi','facultativo');
+    if(CINZAS_INTEIRO.includes(uf)) put(add(p,-46),'Quarta-feira de Cinzas','facultativo');
+    else put(add(p,-46),'Quarta de Cinzas (volta às '+(CINZAS_HORA[uf]||'14h')+')','meio');
+    put(new Date(y,11,24),'Véspera de Natal','meio');
+    put(new Date(y,11,31),'Véspera de Ano-Novo','meio');
+  }
+  // meio expediente: vira folga cheia se o usuário pedir, senão fica "vazio"
+  // (aparece no calendário mas não emenda folga, porque você trabalha metade do dia)
+  for(const k in h){
+    if(h[k].s!=='meio') continue;
+    if(o.meio) h[k].s='facultativo';
+    else h[k].vazio=1;
+  }
+  return h;
+}
+
+/* Aplica feriados.json sobre a base embutida (mesma estrutura interna).
+   Assim o HTML e o Expo compartilham uma fonte — e file:// continua offline. */
+function aplicarBase(json){
+  if(!json || !json.estados) return false;
+  const embutida=DADOS.versao;
+  if(json.versao) DADOS.versao=json.versao;
+  if(json.revisado) DADOS.revisado=json.revisado;
+  DADOS.fonte='json';
+  DADOS.embutida=embutida;
+
+  if(Array.isArray(json.nacionais)){
+    NACIONAIS.length=0;
+    for(const f of json.nacionais) NACIONAIS.push([f.data,f.nome]);
+  }
+  if(json.cinzas){
+    CINZAS_INTEIRO.length=0;
+    for(const uf of json.cinzas.diaInteiro||[]) CINZAS_INTEIRO.push(uf);
+    for(const k of Object.keys(CINZAS_HORA)) delete CINZAS_HORA[k];
+    Object.assign(CINZAS_HORA, json.cinzas.retorno||{});
+  }
+  for(const k of Object.keys(UFS)) delete UFS[k];
+  for(const [uf,st] of Object.entries(json.estados)){
+    UFS[uf]={
+      n:st.nome,
+      f:(st.feriados||[]).map(f=>[f.data,f.nome]),
+      c:{},
+    };
+    for(const [cid,list] of Object.entries(st.cidades||{}))
+      UFS[uf].c[cid]=(list||[]).map(f=>[f.data,f.nome]);
+  }
+  return true;
+}
+
+function compararVersao(a,b){
+  const pa=String(a||'').split('.').map(n=>parseInt(n,10)||0);
+  const pb=String(b||'').split('.').map(n=>parseInt(n,10)||0);
+  const n=Math.max(pa.length,pb.length);
+  for(let i=0;i<n;i++){
+    const x=pa[i]||0, y=pb[i]||0;
+    if(x!==y) return x-y;
+  }
+  return 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3. LINHA DO TEMPO — sempre de hoje até daqui a 1 ano
+   ═══════════════════════════════════════════════════════════════ */
+
+let T=[], IDX={}, HOJE=0, MINI=0, LIMITE=0, MESSEL='', SALDO=0, PRAZO=null;
+let HOJE_D=null, FIM_D=null, MESESJAN=[];
+
+function hojeZerado(){ const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate()); }
+
+// os 13 meses tocados pelo intervalo de hoje até daqui a 1 ano
+function mesesDoIntervalo(){
+  const out=[]; let d=new Date(HOJE_D.getFullYear(),HOJE_D.getMonth(),1);
+  while(d<=FIM_D){ out.push({y:d.getFullYear(),m:d.getMonth()}); d=new Date(d.getFullYear(),d.getMonth()+1,1); }
+  return out;
+}
+
+function timeline(uf, cidade, opts, trabSab){
+  const ini=add(new Date(HOJE_D.getFullYear(),HOJE_D.getMonth(),1),-20);
+  const fim=add(FIM_D,60);
+  const hol={};
+  for(let y=ini.getFullYear(); y<=fim.getFullYear(); y++) Object.assign(hol, feriadosDoAno(y,uf,cidade,opts));
+  const out=[]; IDX={};
+  for(let d=ini,i=0; d<=fim; d=add(d,1), i++){
+    const k=key(d), dow=d.getDay(), f=hol[k]||null;
+    const off = (!!f && !f.vazio) || dow===0 || (dow===6 && !trabSab);
+    out.push({d:new Date(d), k, dow, hol:f, off, meio:!!(f&&f.vazio)});
+    IDX[k]=i;
+  }
+  return out;
+}
+
+/* Expande a folga contígua ao redor de [i..j].
+   Para a esquerda nunca passa de hoje: um fim de semana que já aconteceu não
+   conta como folga que você ainda vai ter. */
+function run(i,j){
+  let a=i; while(a-1>=HOJE && T[a-1].off) a--;
+  let b=j; while(b+1<T.length && T[b+1].off) b++;
+  return [a,b];
+}
+function feriadosEm(a,b){
+  const l=[]; for(let x=a;x<=b;x++) if(T[x].hol) l.push({d:T[x].d,...T[x].hol});
+  return l;
+}
+/* art. 134 §3 CLT: proibido iniciar férias nos 2 dias que antecedem feriado
+   ou dia de repouso semanal remunerado. Na prática: só segunda, terça ou
+   quarta (quinta também, se a empresa trabalha sábado). */
+function inicioValido(i, trabSab){
+  const dow=T[i].dow;
+  const proibidos = trabSab ? [5,6,0] : [4,5,6,0];
+  if(proibidos.includes(dow)) return false;
+  if(T[i].hol) return false;
+  if(T[i+1] && T[i+1].hol) return false;
+  if(T[i+2] && T[i+2].hol) return false;
+  return true;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. BUSCA — sempre um bloco único do tamanho do saldo
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Alta temporada: férias escolares (julho e 15/dez–31/jan), semana do Carnaval
+   e Semana Santa. É quando passagem e hospedagem disparam — uma janela pode
+   render muita folga e ainda assim ser a pior hora para viajar. */
+function fatiaAlta(a,b){
+  let alta=0;
+  for(let x=a;x<=b;x++){
+    const d=T[x].d, m=d.getMonth(), dd=d.getDate(), y=d.getFullYear();
+    let e = m===6 || m===0 || (m===11 && dd>=15);          // julho, janeiro, 2ª quinzena de dezembro
+    if(!e){
+      const p=pascoa(y), dias=v=>Math.abs(d-v)/864e5;
+      if(dias(add(p,-47))<=4 || dias(p)<=4) e=true;        // Carnaval e Semana Santa
+    }
+    if(e) alta++;
+  }
+  return alta/(b-a+1);
+}
+
+// o período tem que caber no intervalo e, se houver filtro, COMEÇAR no mês
+function dentroDoAlcance(i,j){
+  if(i<MINI || j>LIMITE) return false;
+  if(MESSEL!==''){
+    const [y,m]=MESSEL.split('-').map(Number);
+    if(T[i].d.getFullYear()!==y || T[i].d.getMonth()!==m) return false;
+  }
+  return true;
+}
+
+function buscar(saldo, trabSab, art){
+  const res=[];
+  for(let i=MINI;i<T.length;i++){
+    const j=i+saldo-1;                   // sempre dias corridos
+    if(j>=T.length) break;
+    if(!dentroDoAlcance(i,j)) continue;
+    if(art && !inicioValido(i,trabSab)) continue;
+    if(!art && T[i].off) continue;       // começar num dia útil
+    const [a,b]=run(i,j);
+    res.push({i,j,a,b,custo:saldo,total:b-a+1,ef:(b-a+1)/saldo,
+              desperdicio:feriadosEm(i,j).length,
+              alta:fatiaAlta(i,j),
+              // art. 137: o que vale é a data em que as férias COMEÇAM
+              fora: !!PRAZO && T[i].d>PRAZO});
+  }
+  return res;
+}
+
+/* Divide o saldo em n partes o mais parecidas possível: 30/3 = 10+10+10,
+   20/3 = 7+7+6. Devolve em ordem decrescente. */
+function dividir(total,n){
+  const base=Math.floor(total/n), resto=total%n;
+  return Array.from({length:n},(_,k)=>base+(k<resto?1:0));
+}
+
+/* Art. 134 §1: no máximo 3 períodos, um com no mínimo 14 dias e os
+   demais com no mínimo 5. Devolve o que está errado, se estiver. */
+function checarCLT(partes){
+  if(partes.length<2) return null;
+  if(Math.max(...partes)<14) return 'exige um período de no mínimo 14 dias';
+  if(Math.min(...partes)<5)  return 'exige no mínimo 5 dias em cada período';
+  return null;
+}
+
+/* Monta planos completos: uma janela para cada pedaço, sem sobrepor e com
+   pelo menos três semanas de trabalho entre elas. Varia o período maior
+   para gerar alternativas — os menores entram pelo melhor que couber. */
+function montarPlanos(partes, trabSab, art, lim){
+  const GAP=21;
+  const cache={};
+  const cand=(len,comMes)=>{
+    const k=len+':'+(comMes?1:0);
+    if(cache[k]) return cache[k];
+    const guardado=MESSEL;
+    if(!comMes) MESSEL='';                       // só o período maior respeita o filtro de mês
+    const r=podar(buscar(len,trabSab,art),60);
+    MESSEL=guardado;
+    return (cache[k]=r);
+  };
+  const [maior,...resto]=partes;
+  const vistos=new Set(), planos=[];
+  for(const semente of cand(maior,true)){
+    const esc=[semente];
+    let ok=true;
+    for(const len of resto){
+      // melhor janela que cabe com 21 dias de trabalho entre períodos — não a primeira
+      const pick=cand(len,false)
+        .filter(r=>esc.every(e=>r.b<e.a-GAP||r.a>e.b+GAP))
+        .sort((x,y)=>y.total-x.total||x.i-y.i)[0];
+      if(!pick){ ok=false; break; }
+      esc.push(pick);
+    }
+    if(!ok) continue;
+    esc.sort((x,y)=>x.i-y.i);
+    const sig=esc.map(r=>r.i).join('|');
+    if(vistos.has(sig)) continue;
+    vistos.add(sig);
+    planos.push({
+      periodos:esc, plano:true,
+      i:esc[0].i, a:esc[0].a, b:esc[esc.length-1].b,
+      custo:partes.reduce((x,y)=>x+y,0),
+      total:esc.reduce((x,r)=>x+r.total,0),
+      desperdicio:esc.reduce((x,r)=>x+r.desperdicio,0),
+      alta:Math.max(...esc.map(r=>r.alta)),
+      fora:esc.some(r=>r.fora),
+    });
+    if(planos.length>=lim*2) break;
+  }
+  planos.sort((x,y)=>(x.fora?1:0)-(y.fora?1:0)||y.total-x.total||x.i-y.i);
+  return planos.slice(0,lim);
+}
+
+// mantém as melhores sem sobreposição.
+// Quem estoura o período concessivo vai para o fim: rende folga, mas é ilegal.
+function podar(list, lim){
+  list.sort((x,y)=> (x.fora?1:0)-(y.fora?1:0) || y.total-x.total || x.i-y.i);
+  const out=[];
+  for(const r of list){
+    if(out.some(o=> !(r.b<o.a-1 || r.a>o.b+1))) continue;
+    out.push(r);
+    if(out.length>=lim) break;
+  }
+  return out;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. RENDER
+   ═══════════════════════════════════════════════════════════════ */
+
+let SEL=null, JANELAS=[], MOSTRA=6, PARTES=2, CUSTOM=null;
+
+function marcarSeg(){
+  document.querySelectorAll('.seg button').forEach(b=>{
+    const on = +b.dataset.n===PARTES;
+    b.classList.toggle('on',on);
+    b.setAttribute('aria-checked',on?'true':'false');
+  });
+}
+
+// trocar o número de períodos sempre volta para a divisão igual
+function setPartes(n){ PARTES=n; CUSTOM=null; marcarSeg(); calc(); }
+
+/* Os campos de período são a fonte da verdade quando editados: a soma deles
+   vira o total, e o campo "Dias" acompanha. Mexer em "Dias" refaz a divisão
+   igual. Assim os dois nunca discordam. */
+function editarParte(k,v){
+  const atual=(CUSTOM||dividir(SALDO,PARTES)).slice();
+  atual[k]=Math.max(1,Math.min(60,Math.round(+v)||1));
+  // o total tem o mesmo teto do campo "Dias": o excesso sai do campo editado,
+  // senão a soma e o saldo passariam a discordar
+  const outros=atual.reduce((a,b,i)=>i===k?a:a+b,0);
+  atual[k]=Math.max(1,Math.min(atual[k],60-outros));
+  CUSTOM=atual;
+  $('dias').value=atual.reduce((a,b)=>a+b,0);
+  calc();
+}
+
+function pintarPartes(partes){
+  const alvo=$('partes');
+  const assinatura=partes.join(',');
+  if(alvo.dataset.sig===assinatura) return;    // não recria enquanto se digita
+  alvo.dataset.sig=assinatura;
+  alvo.innerHTML = partes.map((d,k)=>
+      (k?'<span class="mais-sinal">+</span>':'')
+      + `<input type="number" min="1" max="60" value="${d}" inputmode="numeric"
+           aria-label="Dias do ${k+1}º período" onchange="editarParte(${k},this.value)">`
+    ).join('')
+    + `<span class="igual">= <b>${partes.reduce((a,b)=>a+b,0)} dias</b></span>`;
+}
+const $=id=>document.getElementById(id);
+const PASSO=6;
+
+// "5 set → 22 set 2026"  ·  cruzando o ano: "28 dez 2026 → 11 jan 2027"
+function periodo(a,b){
+  const A=T[a].d, B=T[b].d;
+  const ma=MESC[A.getMonth()], mb=MESC[B.getMonth()];
+  return A.getFullYear()===B.getFullYear()
+    ? `${A.getDate()} ${ma} → ${B.getDate()} ${mb} <em>${A.getFullYear()}</em>`
+    : `${A.getDate()} ${ma} <em>${A.getFullYear()}</em> → ${B.getDate()} ${mb} <em>${B.getFullYear()}</em>`;
+}
+
+function strip(r){
+  let h='<div class="strip">';
+  for(let x=r.a;x<=r.b;x++){
+    const t=T[x];
+    let cls = (x>=r.i&&x<=r.j) ? 'vac' : t.meio ? 'meio' : t.hol ? 'hol' : t.off ? 'free' : 'wk';
+    if(x>=r.i&&x<=r.j && t.hol && !t.meio) cls='hol';
+    h+=`<div class="d ${cls}" title="${(t.hol?t.hol.n:DOWF[t.dow]).replace(/"/g,'')} — ${fmtA(t.d)}">`
+      +`<small>${DOWC[t.dow]}</small>${t.d.getDate()}</div>`;
+  }
+  return h+'</div>';
+}
+
+function janela(r,n,porData){
+  const extra=r.total-r.custo;
+  // "Carnaval (segunda)" e "Carnaval (terça)" viram um "Carnaval" só
+  const fs=[...new Set(feriadosEm(r.a,r.b).map(f=>f.n.replace(/ \(.*\)$/,'')))];
+  const ganho=[];
+  if(r.fora) ganho.push(`<span class="bad">fora do prazo — férias em dobro</span>`);
+  if(extra>0) ganho.push(`<span class="up">+${extra} ${extra>1?'dias':'dia'} de graça</span>`);
+  if(fs.length) ganho.push(fs.slice(0,3).join(', ')+(fs.length>3?` +${fs.length-3}`:''));
+  if(r.desperdicio>0) ganho.push(`<span class="warn">${r.desperdicio} feriado${r.desperdicio>1?'s':''} desperdiçado${r.desperdicio>1?'s':''}</span>`);
+  if(r.alta>=.4) ganho.push(`<span class="hot">alta temporada · passagem cara</span>`);
+  // em ordem cronológica o "1" não quer dizer melhor — então digo qual é a melhor
+  if(porData && r.rank===1) ganho.unshift(`<span class="top">melhor opção do período</span>`);
+  const rotulo=(porData ? `${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}, ${r.rank}º melhor. `
+                        : `${n}º lugar. ${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}. `)
+    +`${r.total} dias fora usando ${r.custo} de férias.`;
+  return `<li class="w${r.fora?' fora':''}${porData&&r.rank===1?' melhor':''}" tabindex="0" role="button" aria-label="${rotulo}"
+      onclick="selecionar(${r.a},${r.b},${r.i},${r.j})"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selecionar(${r.a},${r.b},${r.i},${r.j})}">
+    <div class="wn" aria-hidden="true">${n}</div>
+    <div class="wmain">
+      <div class="wdate">${periodo(r.a,r.b)}</div>
+      <div class="wsub">Marque ${fmt(T[r.i].d)} a ${fmt(T[r.j].d)} · ${r.custo} dias · começa ${DOWF[T[r.i].dow]}</div>
+      ${ganho.length?`<div class="wgain">${ganho.join(' · ')}</div>`:''}
+    </div>
+    <div class="wnum">
+      <b>${r.total}</b><span>dias fora</span>
+      <div class="wicsrow">
+        <button class="wics" aria-label="Baixar ${fmtA(T[r.i].d)} como evento de calendário"
+          onclick="exportar(event,${r.a},${r.b},${r.i},${r.j})">.ics</button>
+        <button class="wrh" aria-label="Copiar pedido para o RH"
+          onclick="copiarPedidoRH(event,${r.i},${r.j},${r.a},${r.b})">Pedido RH</button>
+      </div>
+    </div>
+    ${strip(r)}
+  </li>`;
+}
+
+// uma linha quando o usuário dividiu as férias em 2 ou 3 períodos
+function planoLinha(p,n,porData){
+  const ganho=[];
+  if(p.fora) ganho.push(`<span class="bad">algum período estoura o prazo</span>`);
+  if(p.desperdicio>0) ganho.push(`<span class="warn">${p.desperdicio} feriado${p.desperdicio>1?'s':''} desperdiçado${p.desperdicio>1?'s':''}</span>`);
+  if(p.alta>=.4) ganho.push(`<span class="hot">algum período em alta temporada</span>`);
+  if(porData && p.rank===1) ganho.unshift(`<span class="top">melhor plano do período</span>`);
+  const linhas=p.periodos.map((r,k)=>`
+    <div class="per">
+      <div class="pern">${k+1}</div>
+      <div>
+        <div class="perd">${periodo(r.a,r.b)}</div>
+        <div class="perm">Marque ${fmt(T[r.i].d)} a ${fmt(T[r.j].d)} · ${r.custo} dias · ${DOWF[T[r.i].dow]}</div>
+      </div>
+      <div class="perx">${r.total} fora</div>
+    </div>`).join('');
+  const rotulo=`Plano com ${p.periodos.length} períodos, ${p.total} dias fora usando ${p.custo} de férias.`;
+  return `<li class="w plano${p.fora?' fora':''}${porData&&p.rank===1?' melhor':''}"
+      tabindex="0" role="button" aria-label="${rotulo}"
+      onclick="selecionarPlano(${n-1})"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selecionarPlano(${n-1})}">
+    <div class="wn" aria-hidden="true">${n}</div>
+    <div class="wmain">
+      <div class="wdate">${p.periodos.length} períodos <em>· ${p.periodos.map(r=>r.custo).join(' + ')} dias</em></div>
+      ${ganho.length?`<div class="wgain">${ganho.join(' · ')}</div>`:''}
+      ${linhas}
+    </div>
+    <div class="wnum">
+      <b>${p.total}</b><span>dias fora</span>
+      <div class="wicsrow">
+        <button class="wics" aria-label="Baixar o plano como eventos de calendário"
+          onclick="exportarPlano(event,${n-1})">.ics</button>
+        <button class="wrh" aria-label="Copiar pedido do plano para o RH"
+          onclick="copiarPedidoPlanoRH(event,${n-1})">Pedido RH</button>
+      </div>
+    </div>
+  </li>`;
+}
+
+function selecionarPlano(k){
+  const p=JANELAS[k];
+  SEL=p.periodos.map(r=>({a:r.a,b:r.b,i:r.i,j:r.j}));
+  renderCal();
+  tab('cal', document.querySelectorAll('nav.tabs button')[1]);
+}
+
+function exportarPlano(ev,k){
+  ev.stopPropagation();
+  const p=JANELAS[k];
+  const z=n=>String(n).padStart(2,'0');
+  const st=d=>d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());
+  const stamp=(()=>{ const n=new Date();
+    return n.getUTCFullYear()+z(n.getUTCMonth()+1)+z(n.getUTCDate())+'T'
+      +z(n.getUTCHours())+z(n.getUTCMinutes())+z(n.getUTCSeconds())+'Z'; })();
+  let s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Férias Certa//PT-BR//\r\nCALSCALE:GREGORIAN\r\n';
+  p.periodos.forEach((r,n)=>{
+    s+='BEGIN:VEVENT\r\n'
+      +`UID:fc-${st(T[r.i].d)}-${n}@feriascerta\r\n`
+      +`DTSTAMP:${stamp}\r\n`
+      +`DTSTART;VALUE=DATE:${st(T[r.i].d)}\r\n`
+      +`DTEND;VALUE=DATE:${st(add(T[r.j].d,1))}\r\n`
+      +`SUMMARY:Férias ${n+1}/${p.periodos.length}\r\n`
+      +`DESCRIPTION:Folga de ${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)} — ${r.total} dias fora.\r\n`
+      +'TRANSP:TRANSPARENT\r\nEND:VEVENT\r\n';
+  });
+  s+='END:VCALENDAR';
+  const el=document.createElement('a');
+  el.href=URL.createObjectURL(new Blob([s],{type:'text/calendar'}));
+  el.download='ferias-'+p.periodos.length+'-periodos.ics'; el.click(); URL.revokeObjectURL(el.href);
+}
+
+function textoPedidoRH(i,j,a,b){
+  const aviso=$('aviso').checked;
+  const art=$('art').checked;
+  const cid=$('cid').value || ($('uf').value?UFS[$('uf').value].n:'');
+  let t=`Solicito a concessão de férias de ${fmtA(T[i].d)} a ${fmtA(T[j].d)}`
+    +` (${j-i+1} dias corridos)`;
+  if(cid) t+=`, considerando o calendário de ${cid}`;
+  t+=`.\n\nPeríodo de folga resultante: ${fmtA(T[a].d)} a ${fmtA(T[b].d)} (${b-a+1} dias fora do trabalho).`;
+  if(aviso) t+=`\n\nComunico com 30 dias de antecedência, conforme o art. 135 da CLT.`;
+  if(art) t+=`\nO início respeita o art. 134 §3 (não nos dois dias que antecedem feriado ou repouso).`;
+  t+=`\n\n— Gerado pelo Férias Certa`;
+  return t;
+}
+
+async function copiarPedidoRH(ev,i,j,a,b){
+  ev.stopPropagation();
+  const btn=ev.currentTarget;
+  const texto=textoPedidoRH(i,j,a,b);
+  try{ await navigator.clipboard.writeText(texto); }
+  catch(_){
+    const ta=document.createElement('textarea'); ta.value=texto;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+  const prev=btn.textContent; btn.textContent='Copiado';
+  setTimeout(()=>{ btn.textContent=prev; },1600);
+}
+
+async function copiarPedidoPlanoRH(ev,k){
+  ev.stopPropagation();
+  const p=JANELAS[k];
+  const btn=ev.currentTarget;
+  const aviso=$('aviso').checked;
+  const art=$('art').checked;
+  const cid=$('cid').value || ($('uf').value?UFS[$('uf').value].n:'');
+  let t=`Solicito a concessão de férias em ${p.periodos.length} períodos`;
+  if(cid) t+=` (calendário de ${cid})`;
+  t+=`:\n`;
+  p.periodos.forEach((r,n)=>{
+    t+=`\n${n+1}) ${fmtA(T[r.i].d)} a ${fmtA(T[r.j].d)} — ${r.custo} dias corridos`
+      +` (folga de ${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}, ${r.total} dias fora)`;
+  });
+  t+=`\n\nTotal: ${p.custo} dias de saldo · ${p.total} dias fora.`;
+  if(aviso) t+=`\nComunico com 30 dias de antecedência (art. 135 da CLT).`;
+  if(art) t+=`\nOs inícios respeitam o art. 134 §3.`;
+  t+=`\n\n— Gerado pelo Férias Certa`;
+  try{ await navigator.clipboard.writeText(t); }
+  catch(_){
+    const ta=document.createElement('textarea'); ta.value=t;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+  const prev=btn.textContent; btn.textContent='Copiado';
+  setTimeout(()=>{ btn.textContent=prev; },1600);
+}
+
+function pintar(){
+  const porData = $('ord').value==='data';
+  $('janelas').classList.toggle('data',porData);
+  $('janelas').innerHTML = JANELAS.slice(0,MOSTRA)
+    .map((r,n)=>r.plano ? planoLinha(r,n+1,porData) : janela(r,n+1,porData)).join('');
+  const resta=JANELAS.length-MOSTRA;
+  $('mais').hidden = resta<=0;
+  if(resta>0) $('mais').textContent=`Mostrar mais ${Math.min(PASSO,resta)}`;
+}
+function verMais(){ MOSTRA+=PASSO; pintar(); }
+
+function exportar(ev,a,b,i,j){
+  ev.stopPropagation();
+  const z=n=>String(n).padStart(2,'0');
+  const st=d=>d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());
+  const stamp=(()=>{ const n=new Date();
+    return n.getUTCFullYear()+z(n.getUTCMonth()+1)+z(n.getUTCDate())+'T'
+      +z(n.getUTCHours())+z(n.getUTCMinutes())+z(n.getUTCSeconds())+'Z'; })();
+  const s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Férias Certa//PT-BR//\r\nCALSCALE:GREGORIAN\r\n'
+    +'BEGIN:VEVENT\r\n'
+    +`UID:fc-${st(T[i].d)}@feriascerta\r\n`
+    +`DTSTAMP:${stamp}\r\n`
+    +`DTSTART;VALUE=DATE:${st(T[i].d)}\r\n`
+    +`DTEND;VALUE=DATE:${st(add(T[j].d,1))}\r\n`
+    +'SUMMARY:Férias\r\n'
+    +`DESCRIPTION:Folga de ${fmtA(T[a].d)} a ${fmtA(T[b].d)} — ${b-a+1} dias fora do trabalho.\r\n`
+    +'TRANSP:TRANSPARENT\r\nEND:VEVENT\r\nEND:VCALENDAR';
+  const el=document.createElement('a');
+  el.href=URL.createObjectURL(new Blob([s],{type:'text/calendar'}));
+  el.download='ferias-'+key(T[i].d)+'.ics'; el.click(); URL.revokeObjectURL(el.href);
+}
+
+function selecionar(a,b,i,j){
+  SEL=[{a,b,i,j}]; renderCal();
+  tab('cal', document.querySelectorAll('nav.tabs button')[1]);
+}
+
+function renderCal(){
+  let h='';
+  for(const {y,m} of MESESJAN){
+    const first=new Date(y,m,1), dim=new Date(y,m+1,0).getDate();
+    const ehAgora = y===HOJE_D.getFullYear() && m===HOJE_D.getMonth();
+    let cont=0, g='<div class="grid">';
+    for(const d of DOWC) g+=`<div class="dow">${d}</div>`;
+    for(let p=0;p<first.getDay();p++) g+='<div class="cd pad"></div>';
+    for(let dd=1;dd<=dim;dd++){
+      const dt=new Date(y,m,dd), x=IDX[key(dt)], t=T[x];
+      const fora = dt<HOJE_D || dt>FIM_D;
+      let cls = fora?'passou':'';
+      if(!fora){
+        const dentro = SEL && SEL.find(sl=>x>=sl.a && x<=sl.b);
+        if(dentro && x>=dentro.i && x<=dentro.j) cls='vac';
+        else if(t.meio) cls='meio';
+        else if(t.hol) cls='hol';
+        else if(dentro) cls='free';
+        else if(t.off) cls='wk';
+        if(dentro) cont++;
+      }
+      if(dt.getTime()===HOJE_D.getTime()) cls+=' hj';
+      const tip=t.hol? t.hol.n.replace(/"/g,'') : '';
+      g+=`<div class="cd ${cls}" ${tip?`title="${tip}"`:''}>${dd}</div>`;
+    }
+    g+='</div>';
+    const nota = cont ? `<em>${cont} dias</em>` : ehAgora ? '<em class="hoje">hoje</em>' : '';
+    h+=`<div class="mon"><div class="mont"><span>${MESES[m][0].toUpperCase()+MESES[m].slice(1)} ${y}</span>${nota}</div>${g}</div>`;
+  }
+  $('cal').innerHTML=h;
+}
+
+function renderFeriados(){
+  const arr=[];
+  for(let x=HOJE;x<=LIMITE;x++) if(T[x].hol) arr.push({d:T[x].d,...T[x].hol});
+  const util=f=>f.d.getDay()!==0 && (f.d.getDay()!==6 || $('sab').checked);
+  const uteis=arr.filter(util).length;
+  $('ferSub').innerHTML=`<b>${uteis} dos ${arr.length} feriados</b> caem em dia útil nos próximos 12 meses. `
+    +`Os ${arr.length-uteis} riscados caem no fim de semana e não valem nada.`;
+  $('fers').innerHTML=arr.map(f=>{
+    const we=!util(f);
+    return `<div class="hi ${we?'we':''}">
+      <span class="dt">${f.d.getDate()} ${MESC[f.d.getMonth()]} ${String(f.d.getFullYear()).slice(2)}</span>
+      <span class="nm">${f.n}<span class="sc"> · ${f.s==='meio'?'meio expediente':f.s}, ${DOWN[f.d.getDay()]}</span></span>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. CONTROLE
+   ═══════════════════════════════════════════════════════════════ */
+
+function tab(id,btn){
+  document.querySelectorAll('.tab').forEach(e=>e.classList.remove('on'));
+  document.querySelectorAll('nav.tabs button').forEach(e=>{
+    e.classList.remove('on'); e.setAttribute('aria-selected','false'); e.tabIndex=-1;
+  });
+  $('t-'+id).classList.add('on');
+  const b=btn||$('tb-'+id);
+  b.classList.add('on'); b.setAttribute('aria-selected','true'); b.tabIndex=0;
+}
+// setas navegam entre as abas, como manda o padrão WAI-ARIA
+document.querySelector('nav.tabs').addEventListener('keydown',e=>{
+  const bs=[...document.querySelectorAll('nav.tabs button')];
+  const i=bs.indexOf(document.activeElement);
+  if(i<0) return;
+  let n=null;
+  if(e.key==='ArrowRight') n=(i+1)%bs.length;
+  if(e.key==='ArrowLeft')  n=(i-1+bs.length)%bs.length;
+  if(e.key==='Home') n=0;
+  if(e.key==='End')  n=bs.length-1;
+  if(n===null) return;
+  e.preventDefault(); bs[n].focus(); bs[n].click();
+});
+
+/* ── estado na URL ──────────────────────────────────────────────
+   Tudo que o usuário escolhe vira querystring, então o link é
+   compartilhável e o F5 não perde a configuração. */
+const CAMPOS=[['uf','uf'],['c','cid'],['d','dias'],['m','mes'],['pa','aquis'],
+              ['o','ord'],['t','temp']];
+const CHAVES=[['fac','fac'],['art','art'],['sab','sab'],['mei','meio'],['loc','loc'],['av','aviso'],['dv','dividir']];
+
+function gravarURL(){
+  const q=new URLSearchParams();
+  if($('dividir').checked){
+    if(PARTES!==2) q.set('np',PARTES);
+    if(CUSTOM) q.set('pp',CUSTOM.join('-'));
+  }
+  for(const [k,id] of CAMPOS){ const v=$(id).value; if(v) q.set(k,v); }
+  for(const [k,id] of CHAVES){ if($(id).checked!==PADRAO[id]) q.set(k,$(id).checked?'1':'0'); }
+  history.replaceState(null,'', q.toString()? '?'+q : location.pathname);
+}
+function lerURL(){
+  const q=new URLSearchParams(location.search);
+  if(![...q.keys()].length) return false;
+  if(q.has('np')) PARTES=Math.min(3,Math.max(1,+q.get('np')||2));
+  if(q.has('pp')){
+    const l=q.get('pp').split('-').map(v=>Math.max(1,Math.min(60,+v||1)));
+    if(l.length>=1 && l.length<=3){ CUSTOM=l; PARTES=l.length; }
+  }
+  for(const [k,id] of CAMPOS) if(q.has(k)) $(id).value=q.get(k);
+  for(const [k,id] of CHAVES) if(q.has(k)) $(id).checked = q.get(k)==='1';
+  return true;
+}
+/* No celular usa a folha de compartilhamento do sistema (WhatsApp, e-mail);
+   no desktop cai na área de transferência. */
+async function copiarLink(){
+  const el=$('copiar');
+  const texto = $('resumo').textContent.split('\n')[0].trim();
+  if(navigator.share){
+    try{ await navigator.share({title:'Férias Certa', text:texto, url:location.href}); return; }
+    catch(e){ if(e && e.name==='AbortError') return; }
+  }
+  try{ await navigator.clipboard.writeText(location.href); }
+  catch(_){ /* sem permissão: o link já está na barra de endereço */ }
+  el.textContent='Link copiado'; el.classList.add('ok');
+  setTimeout(()=>{ el.textContent=ROTULO_COMPARTILHAR; el.classList.remove('ok'); },1800);
+}
+let ROTULO_COMPARTILHAR='Copiar link';
+
+/* Preferências ficam no aparelho: quem já escolheu Recife não escolhe de novo.
+   A URL sempre vence a memória, porque link compartilhado tem que abrir igual. */
+const MEM='feriascerta:v1';
+function salvarPrefs(){
+  try{
+    const o={};
+    for(const [,id] of CAMPOS) o[id]=$(id).value;
+    for(const [,id] of CHAVES) o[id]=$(id).checked;
+    o.partes=PARTES; o.custom=CUSTOM;
+    localStorage.setItem(MEM,JSON.stringify(o));
+  }catch(_){ /* modo anônimo ou storage cheio: seguimos sem memória */ }
+}
+/* Devolve o objeto salvo (ou null) e aplica tudo MENOS a cidade — ela depende
+   da lista de opções, que só é montada depois que a UF entra. */
+function lerPrefs(){
+  try{
+    const o=JSON.parse(localStorage.getItem(MEM)||'null');
+    if(!o) return null;
+    for(const [,id] of CAMPOS) if(id!=='cid' && o[id]!==undefined && $(id)) $(id).value=o[id];
+    for(const [,id] of CHAVES) if(o[id]!==undefined && $(id)) $(id).checked=o[id];
+    if(o.partes) PARTES=o.partes;
+    if(Array.isArray(o.custom)) CUSTOM=o.custom;
+    return o;
+  }catch(_){ return null; }
+}
+
+// mostra no botão "Ajustes" quantas opções fugiram do padrão
+const PADRAO={fac:true,art:true,sab:false,meio:false,loc:false,aviso:true,dividir:false};
+function syncAjustes(){
+  let n=Object.keys(PADRAO).filter(k=>k!=='dividir' && $(k).checked!==PADRAO[k]).length;
+  if($('aquis').value) n++;
+  const el=$('advCount');
+  el.hidden = n===0;
+  el.textContent = n;
+}
+
+function calc(){
+  syncAjustes();
+  const uf=$('uf').value, cid=$('cid').value;
+  const trabSab=$('sab').checked, art=$('art').checked;
+  /* O campo não pode mostrar um número e o app calcular outro:
+     se estourar a faixa, corrige na tela. Campo vazio fica em paz
+     enquanto o usuário digita. */
+  const bruto=$('dias').value;
+  const saldo=Math.max(1,Math.min(60,Math.round(+bruto)||1));
+  if(bruto!=='' && +bruto!==saldo) $('dias').value=saldo;
+  SALDO=saldo; MESSEL=$('mes').value;
+
+  T=timeline(uf,cid,{fac:$('fac').checked,meio:$('meio').checked,loc:$('loc').checked},trabSab);
+  HOJE=IDX[key(HOJE_D)]; LIMITE=IDX[key(FIM_D)];
+
+  // art. 135: comunicação por escrito com 30 dias de antecedência
+  const aviso=$('aviso').checked;
+  const dInicio = aviso ? add(HOJE_D,30) : HOJE_D;
+  MINI = IDX[key(dInicio)] !== undefined ? IDX[key(dInicio)] : HOJE;
+
+  // art. 137: 12 meses após o fim do período aquisitivo para COMEÇAR as férias
+  const pa=$('aquis').value;
+  PRAZO = pa ? (()=>{ const d=new Date(pa+'T12:00:00');
+    return isNaN(d)?null:new Date(d.getFullYear()+1,d.getMonth(),d.getDate()); })() : null;
+
+  SEL=null; MOSTRA=PASSO;
+  gravarURL(); salvarPrefs();
+
+  /* Dividir: o saldo vira 2 ou 3 blocos parecidos (30 → 15+15, 30 → 10+10+10)
+     e o app monta planos com uma janela para cada bloco. */
+  const ligado=$('dividir').checked;
+  const dividido=ligado && PARTES>1;          // 1 período é o mesmo que não dividir
+  // se o usuário editou os campos, manda a divisão dele; senão, partes iguais
+  if(CUSTOM && CUSTOM.length!==PARTES) CUSTOM=null;
+  const partes = dividido ? (CUSTOM || dividir(saldo,PARTES)) : [saldo];
+  $('splitopts').hidden = !ligado;
+  if(ligado){
+    if(dividido) pintarPartes(partes); else $('partes').innerHTML='', $('partes').dataset.sig='';
+    const problema=checarCLT(partes);
+    $('splitinfo').innerHTML = dividido
+      ? (problema
+          ? `<span class="alerta">o art. 134 §1 ${problema} — o RH pode recusar</span>`
+          : `Dentro do art. 134 §1: um período de 14 dias ou mais e os demais com 5 ou mais.`)
+      : `<b>${saldo} dias</b> de uma vez só, sem dividir.`;
+  }
+
+  SALDO=saldo;
+  const todas=buscar(saldo,trabSab,art);
+  // o filtro de temporada corta ANTES da poda, para sobrarem 24 opções válidas
+  const temp=$('temp').value;
+  const filtra=l => temp==='evitar' ? l.filter(r=>r.alta<.4)
+                  : temp==='so'     ? l.filter(r=>r.alta>=.4)
+                  : l;
+  const elegiveis = filtra(todas);
+  JANELAS = dividido
+    ? filtra(montarPlanos(partes,trabSab,art,24))
+    : podar(elegiveis,24);
+  // a poda já devolve por qualidade: guardo a posição antes de reordenar
+  JANELAS.forEach((r,n)=>r.rank=n+1);
+  const porData = $('ord').value==='data';
+  if(porData) JANELAS.sort((x,y)=>x.i-y.i);
+  $('ord').classList.toggle('ativo',porData);
+  $('temp').classList.toggle('ativo',temp!=='');
+
+  let ferUteis=0;
+  for(let x=HOJE;x<=LIMITE;x++)
+    if(T[x].hol && T[x].dow!==0 && (T[x].dow!==6||trabSab)) ferUteis++;
+
+  const cidTxt = cid ? cid : (uf? UFS[uf].n : 'Brasil');
+  const rotulo = MESSEL==='' ? '' : (()=>{const [y,m]=MESSEL.split('-').map(Number);
+    return MESES[m]+' de '+y;})();
+  const top=JANELAS[0];
+
+  $('lead').innerHTML = `Melhores datas para tirar férias em <b>${cidTxt}</b> · `
+    + (MESSEL==='' ? `<b>${fmt(HOJE_D)} ${HOJE_D.getFullYear()}</b> a <b>${fmt(FIM_D)} ${FIM_D.getFullYear()}</b>`
+                   : `<b>${rotulo}</b>`);
+
+  const avisos=[];
+  if(aviso) avisos.push(`Datas antes de <b>${fmt(dInicio)}</b> ficam de fora: o art. 135 pede aviso de 30 dias.`);
+  if(PRAZO){
+    const noPrazo=elegiveis.filter(r=>!r.fora).length;
+    avisos.push(PRAZO<HOJE_D
+      ? `<b style="color:#fb7185">Seu prazo venceu em ${fmtA(PRAZO)}</b> — pelo art. 137 essas férias já são devidas em dobro. As opções abaixo estão todas fora do prazo.`
+      : noPrazo===0
+      ? `<b style="color:#fb7185">Nenhuma opção cabe no seu prazo</b>, que termina em ${fmtA(PRAZO)} (art. 137). Reduza os dias ou fale com o RH.`
+      : `Você tem até <b>${fmtA(PRAZO)}</b> para <b>começar</b> as férias (art. 137).`
+        + (noPrazo<elegiveis.length
+            ? ` ${elegiveis.length-noPrazo} das ${elegiveis.length} datas possíveis estouram esse prazo — elas aparecem apagadas, no fim da lista.`
+            : ''));
+  }
+
+  if(temp==='evitar') avisos.push(`Escondendo <b>${todas.length-elegiveis.length}</b> de ${todas.length} datas que caem em alta temporada.`);
+  if(temp==='so')     avisos.push(`Mostrando só as <b>${elegiveis.length}</b> de ${todas.length} datas em alta temporada — férias escolares, Carnaval e Semana Santa.`);
+
+  $('resumo').innerHTML = top
+    ? (dividido
+        ? `Dividindo <b>${saldo} dias</b> em <b>${partes.join(' + ')}</b> você consegue até <b>${top.total} dias fora</b> do trabalho`
+          + (MESSEL===''?'':`, com o período maior em ${rotulo}`)
+        : `Com <b>${saldo} ${saldo===1?'dia corrido':'dias corridos'}</b> você consegue até <b>${top.total} dias fora</b> do trabalho`
+          + (MESSEL===''?'':` em ${rotulo}`))
+      + `. ${ferUteis} feriados caem em dia útil nos próximos 12 meses.`
+      + (avisos.length?`<br>${avisos.join(' ')}`:'')
+    : (avisos.length?avisos.join(' '):'');
+
+  $('janelas').innerHTML='';
+  if(!JANELAS.length){
+    $('mais').hidden=true;
+    $('janelas').innerHTML=`<div class="empty">${dividido
+        ? `Não deu para encaixar ${partes.join(' + ')} dias no período.`
+        : `Nenhuma janela de ${saldo} dias${MESSEL?' começando em '+rotulo:''}.`}<br>
+      ${dividido?'Tente menos períodos, ':''}
+      ${temp?'Tente voltar a temporada para "Tanto faz", ':''}${art?'desmarcar o art. 134 §3 em Ajustes, ':''}${aviso?'desligar o aviso de 30 dias, ':''}reduzir os dias ou escolher outro mês.</div>`;
+  } else pintar();
+
+  renderCal();
+  renderFeriados();
+}
+
+/* ---- init ---- */
+(function(){
+  HOJE_D=hojeZerado();
+  FIM_D=new Date(HOJE_D.getFullYear()+1,HOJE_D.getMonth(),HOJE_D.getDate());
+  MESESJAN=mesesDoIntervalo();
+
+  $('mes').innerHTML='<option value="">Todos</option>'+
+    MESESJAN.map(({y,m})=>`<option value="${y}-${m}">${MESES[m][0].toUpperCase()+MESES[m].slice(1)} ${y}</option>`).join('');
+
+  function preencherUF(valor){
+    const atual=valor!==undefined?valor:$('uf').value;
+    $('uf').innerHTML='<option value="">Nenhum</option>'+
+      Object.keys(UFS).sort((a,b)=>UFS[a].n.localeCompare(UFS[b].n))
+        .map(k=>`<option value="${k}">${UFS[k].n}</option>`).join('');
+    if(atual && UFS[atual]) $('uf').value=atual;
+    else if(UFS.SP) $('uf').value='SP';
+  }
+
+  function cidades(){
+    const uf=$('uf').value, cs=uf&&UFS[uf]?Object.keys(UFS[uf].c).sort():[];
+    $('cid').innerHTML='<option value="">Nenhuma</option>'+
+      cs.map(c=>`<option value="${c}">${c}</option>`).join('');
+    if(cs.length) $('cid').value=cs.includes(UFS[uf].n)?UFS[uf].n:cs[0];
+  }
+
+  function atualizarVerRodape(){
+    $('verData').textContent=DADOS.revisado;
+    $('verCidades').textContent=
+      Object.values(UFS).reduce((n,u)=>n+Object.keys(u.c).length,0)+' cidades · versão '+DADOS.versao
+      +(DADOS.fonte==='json'?' · feriados.json':'');
+  }
+
+  preencherUF('SP');
+  cidades(); $('cid').value='São Paulo';
+  atualizarVerRodape();
+
+  // rótulo do botão muda se o aparelho tem compartilhamento nativo
+  if(navigator.share){ ROTULO_COMPARTILHAR='Compartilhar'; $('copiar').textContent=ROTULO_COMPARTILHAR; }
+
+  /* Precedência: link compartilhado > preferências salvas > padrão.
+     A cidade é aplicada DEPOIS de recarregar a lista, senão o <select> ainda
+     tem as cidades da UF anterior e o valor é descartado em silêncio. */
+  const q=new URLSearchParams(location.search);
+  const veioDaURL=lerURL();
+  const alvoCidade = veioDaURL ? q.get('c') : (lerPrefs()||{}).cid;
+  cidades();
+  if(alvoCidade && [...$('cid').options].some(o=>o.value===alvoCidade)) $('cid').value=alvoCidade;
+
+  marcarSeg();   // reflete o número de períodos restaurado
+
+  // se algum ajuste veio do link, já abre o painel para o usuário ver
+  if(veioDaURL && [...q.keys()].some(k=>['fac','art','sab','mei','loc','av','pa'].includes(k)))
+    document.querySelector('details.adv').open=true;
+
+  $('uf').onchange=()=>{cidades();calc();};
+  $('cid').onchange=calc;
+  $('dias').oninput=()=>{ CUSTOM=null; calc(); };
+  $('mes').onchange=calc;
+
+  /* Um erro nos dados não pode deixar a tela em branco. */
+  try{ calc(); }
+  catch(e){
+    console.error(e);
+    $('janelas').innerHTML='<div class="empty">Algo deu errado ao calcular as datas.<br>'
+      +'Recarregue a página — se persistir, os dados de feriado podem estar inconsistentes.</div>';
+  }
+
+  /* feriados.json é a fonte canônica quando servido por http(s).
+     A base embutida fica como fallback (file:// e offline sem cache). */
+  if(location.protocol.startsWith('http')){
+    const ufAntes=$('uf').value, cidAntes=$('cid').value;
+    fetch('./feriados.json',{cache:'no-cache'})
+      .then(r=>r.ok?r.json():Promise.reject())
+      .then(json=>{
+        const embutida=DADOS.versao;
+        if(!aplicarBase(json)) return;
+        preencherUF(ufAntes);
+        cidades();
+        if(cidAntes && [...$('cid').options].some(o=>o.value===cidAntes)) $('cid').value=cidAntes;
+        atualizarVerRodape();
+        const aviso=$('baseAviso');
+        if(compararVersao(json.versao,embutida)>0){
+          aviso.hidden=false;
+          aviso.textContent='Base de feriados atualizada para a versão '+json.versao+' ('+json.revisado+').';
+        } else {
+          aviso.hidden=true;
+        }
+        try{ calc(); }catch(e){ console.error(e); }
+      })
+      .catch(()=>{ /* sem JSON: segue com a base embutida */ });
+  }
+
+  /* Banner de instalação: Android via beforeinstallprompt; iOS com dica manual. */
+  const PWA_MEM='feriascerta:pwa-dismiss';
+  let deferredPrompt=null;
+  const iOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const standalone=window.matchMedia('(display-mode: standalone)').matches
+    || navigator.standalone===true;
+  const dispensado=(()=>{ try{ return localStorage.getItem(PWA_MEM)==='1'; }catch(_){ return false; }})();
+
+  const mostrarPWA=modo=>{
+    if(standalone||dispensado) return;
+    const box=$('pwa'), go=$('pwaGo'), txt=$('pwaTxt');
+    box.hidden=false;
+    if(modo==='ios'){
+      txt.innerHTML='<b>No iPhone:</b> toque em Compartilhar e depois em <b>Adicionar à Tela de Início</b>.';
+      go.hidden=true;
+    } else {
+      txt.innerHTML='<b>Instale o Férias Certa</b> na tela inicial — abre sem navegador e funciona offline.';
+      go.hidden=false;
+    }
+  };
+
+  $('pwaNo').onclick=()=>{
+    $('pwa').hidden=true;
+    try{ localStorage.setItem(PWA_MEM,'1'); }catch(_){}
+  };
+  $('pwaGo').onclick=async ()=>{
+    if(!deferredPrompt) return;
+    deferredPrompt.prompt();
+    try{ await deferredPrompt.userChoice; }catch(_){}
+    deferredPrompt=null;
+    $('pwa').hidden=true;
+  };
+
+  window.addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault();
+    deferredPrompt=e;
+    mostrarPWA('android');
+  });
+  if(iOS && !standalone && !dispensado){
+    setTimeout(()=>mostrarPWA('ios'),1800);
+  }
+
+  /* PWA: só registra quando servido por http(s). Aberto como arquivo local
+     o service worker não existe, e isso não pode quebrar nada. */
+  if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+    window.addEventListener('load',()=>{
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    });
+  }
+})();
+</script>
+</body>
+</html>

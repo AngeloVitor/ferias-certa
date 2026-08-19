@@ -1,0 +1,24 @@
+{
+  "name": "Férias Certa — melhores datas para tirar férias",
+  "short_name": "Férias Certa",
+  "description": "Descubra as melhores datas para tirar férias nos próximos 12 meses, cruzando feriados nacionais, estaduais e municipais com as regras da CLT.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0e14",
+  "theme_color": "#0a0e14",
+  "categories": ["productivity", "travel", "utilities"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "15 dias corridos", "url": "./?d=15" },
+    { "name": "30 dias corridos", "url": "./?d=30" },
+    { "name": "Evitar alta temporada", "url": "./?t=evitar" }
+  ]
+}
