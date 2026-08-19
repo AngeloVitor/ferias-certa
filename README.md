@@ -4,6 +4,12 @@ Otimizador de datas de férias no Brasil. Você diz quantos dias corridos tem e 
 varre os próximos 12 meses cruzando feriados nacionais, estaduais e municipais com
 fins de semana, aplicando as regras da CLT.
 
+**Ao vivo:** https://ferias-certa.vercel.app  
+**Código:** https://github.com/AngeloVitor/ferias-certa
+
+Cada `git push` em `main` publica automaticamente. Ver `RELEASE.md` para o checklist
+de atualização de feriados.
+
 ## Arquivos
 
 | arquivo | o que é |
