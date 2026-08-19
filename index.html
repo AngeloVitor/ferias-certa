@@ -245,11 +245,11 @@
     cursor:pointer;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
   .wics:hover{color:var(--acc)}
 
-  .strip{--sq:23px;grid-column:2/-1;display:flex;gap:2px;flex-wrap:wrap;margin-top:6px}
-  .d{width:var(--sq);height:calc(var(--sq) + 4px);border-radius:2px;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:0;font-size:calc(var(--sq) * .44);font-weight:700;line-height:1.05;
+  .strip{--sq:26px;grid-column:2/-1;display:flex;gap:2px;flex-wrap:wrap;margin-top:6px}
+  .d{width:var(--sq);height:calc(var(--sq) + 6px);border-radius:2px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:0;font-size:11px;font-weight:700;line-height:1.05;
     background:#1a1a1a;color:#ededed;font-variant-numeric:tabular-nums;border:1px solid #404040}
-  .d small{font-size:calc(var(--sq) * .31);opacity:1;font-weight:600;color:#9c9c9c;line-height:1}
+  .d small{font-size:8px;opacity:1;font-weight:600;color:#9c9c9c;line-height:1}
   .d.vac{background:var(--vac);color:#000000;border-color:#e4a30b}
   .d.vac small{color:#664400}
   .d.free{background:#000;color:var(--acc);border-color:var(--acc)}
@@ -343,7 +343,9 @@
     .w{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:18px 0}
     .w.melhor{margin-left:0;padding-left:12px}
     .wn{display:none}
-    .strip{grid-column:1/-1;--sq:21px;margin-top:9px}
+    .strip{grid-column:1/-1;--sq:24px;margin-top:9px}
+    .d{font-size:10.5px}
+    .d small{font-size:8px}
     .wdate{font-size:16.5px}
     .wsub,.wgain{font-size:12.5px}
     .wnum b{font-size:24px}
@@ -353,7 +355,9 @@
   @media(max-width:400px){
     .wrap{padding:calc(22px + env(safe-area-inset-top)) calc(13px + env(safe-area-inset-right))
             calc(56px + env(safe-area-inset-bottom)) calc(13px + env(safe-area-inset-left))}
-    .strip{--sq:19px;gap:1.5px}
+    .strip{--sq:22px;gap:1.5px}
+    .d{font-size:10px}
+    .d small{font-size:7.5px}
     .filters{gap:9px 10px}
     .wnum b{font-size:22px}
     .cd{font-size:9.5px}
@@ -362,7 +366,8 @@
   @media(max-width:340px){
     .field:nth-child(1),.field:nth-child(2){grid-column:1/-1}
     .cal{grid-template-columns:1fr}
-    .strip{--sq:18px}
+    .strip{--sq:20px}
+    .d{font-size:9.5px}
   }
   @media(min-width:1080px){
     .wrap{max-width:920px;padding-top:52px}
