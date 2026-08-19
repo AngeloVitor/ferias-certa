@@ -1,7 +1,7 @@
 /* Férias Certa — service worker
    Rede primeiro, cache como reserva.
    Só guarda resposta OK (nunca 404). Trocar CACHE força update em todos os aparelhos. */
-const CACHE = 'ferias-certa-2026.08e'
+const CACHE = 'ferias-certa-2026.08f'
 const CASCO = [
   './',
   './index.html',
