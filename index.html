@@ -406,6 +406,22 @@
     color:var(--ink3);font-weight:600;cursor:pointer;white-space:nowrap;
   }
   .wrh:hover{color:var(--acc)}
+  .wwhy{
+    grid-column:1/-1;margin-top:2px;font-size:12.5px;color:var(--ink2);line-height:1.45;
+  }
+  .wwhy b{color:var(--acc);font-weight:600}
+  .wctas{
+    grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;
+  }
+  .wcta{
+    border:1px solid var(--line);background:var(--fill);color:var(--ink);
+    border-radius:10px;padding:11px 14px;font:inherit;font-size:13.5px;
+    font-weight:600;cursor:pointer;min-height:44px;
+  }
+  .wcta.go{background:var(--vac);border-color:transparent;color:#05121e}
+  .wcta:hover{border-color:#3a5a78}
+  .wcta.go:hover{filter:brightness(1.05)}
+  .w.melhor .wdate{color:var(--acc)}
   .baseaviso{
     margin:0 0 14px;padding:9px 12px;border-radius:10px;
     background:var(--am-bg);color:var(--am);font-size:12.5px;line-height:1.45;
@@ -998,6 +1014,8 @@ function pintarPartes(partes){
 }
 const $=id=>document.getElementById(id);
 const PASSO=6;
+/* Preenchido no init: só mostra instalar PWA depois de um uso real. */
+let marcarUso=()=>{};
 
 // "5 set → 22 set 2026"  ·  cruzando o ano: "28 dez 2026 → 11 jan 2027"
 function periodo(a,b){
@@ -1020,8 +1038,34 @@ function strip(r){
   return h+'</div>';
 }
 
+/* Uma linha objetiva: por que esta janela está no topo. */
+function porqueEssa(r){
+  const bits=[];
+  const extra=r.total-r.custo;
+  if(extra>0) bits.push(`+${extra} de graça`);
+  const fs=[...new Set(feriadosEm(r.a,r.b).map(f=>f.n.replace(/ \(.*\)$/,'')))];
+  if(fs.length) bits.push('encosta em '+fs.slice(0,2).join(' e '));
+  bits.push('começa '+DOWF[T[r.i].dow]);
+  if(r.desperdicio>0) bits.push(r.desperdicio+' feriado no saldo');
+  else if(extra>0) bits.push('feriados fora do saldo');
+  return bits.slice(0,3).join(' · ');
+}
+
+function porquePlano(p){
+  const bits=[`${p.periodos.length} períodos`, `${p.total} dias fora`];
+  const extras=p.periodos.map(r=>r.total-r.custo).reduce((a,b)=>a+b,0);
+  if(extras>0) bits.push(`+${extras} de graça no total`);
+  if(p.desperdicio===0) bits.push('sem feriado desperdiçado');
+  return bits.slice(0,3).join(' · ');
+}
+
+function eMelhorOpcao(r,n,porData){
+  return porData ? r.rank===1 : n===1;
+}
+
 function janela(r,n,porData){
   const extra=r.total-r.custo;
+  const melhor=eMelhorOpcao(r,n,porData);
   // "Carnaval (segunda)" e "Carnaval (terça)" viram um "Carnaval" só
   const fs=[...new Set(feriadosEm(r.a,r.b).map(f=>f.n.replace(/ \(.*\)$/,'')))];
   const ganho=[];
@@ -1035,7 +1079,17 @@ function janela(r,n,porData){
   const rotulo=(porData ? `${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}, ${r.rank}º melhor. `
                         : `${n}º lugar. ${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}. `)
     +`${r.total} dias fora usando ${r.custo} de férias.`;
-  return `<li class="w${r.fora?' fora':''}${porData&&r.rank===1?' melhor':''}" tabindex="0" role="button" aria-label="${rotulo}"
+  const cta=melhor?`
+    <p class="wwhy"><b>Por que essa?</b> ${porqueEssa(r)}</p>
+    <div class="wctas" onclick="event.stopPropagation()">
+      <button type="button" class="wcta go" aria-label="Copiar pedido para o RH"
+        onclick="copiarPedidoRH(event,${r.i},${r.j},${r.a},${r.b})">Pedido RH</button>
+      <button type="button" class="wcta" aria-label="Ver no calendário"
+        onclick="selecionar(${r.a},${r.b},${r.i},${r.j})">Ver calendário</button>
+      <button type="button" class="wcta" aria-label="Baixar evento de calendário"
+        onclick="exportar(event,${r.a},${r.b},${r.i},${r.j})">.ics</button>
+    </div>`:'';
+  return `<li class="w${r.fora?' fora':''}${melhor?' melhor':''}" tabindex="0" role="button" aria-label="${rotulo}"
       onclick="selecionar(${r.a},${r.b},${r.i},${r.j})"
       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selecionar(${r.a},${r.b},${r.i},${r.j})}">
     <div class="wn" aria-hidden="true">${n}</div>
@@ -1046,19 +1100,21 @@ function janela(r,n,porData){
     </div>
     <div class="wnum">
       <b>${r.total}</b><span>dias fora</span>
-      <div class="wicsrow">
+      ${melhor?'':`<div class="wicsrow">
         <button class="wics" aria-label="Baixar ${fmtA(T[r.i].d)} como evento de calendário"
           onclick="exportar(event,${r.a},${r.b},${r.i},${r.j})">.ics</button>
         <button class="wrh" aria-label="Copiar pedido para o RH"
           onclick="copiarPedidoRH(event,${r.i},${r.j},${r.a},${r.b})">Pedido RH</button>
-      </div>
+      </div>`}
     </div>
     ${strip(r)}
+    ${cta}
   </li>`;
 }
 
 // uma linha quando o usuário dividiu as férias em 2 ou 3 períodos
 function planoLinha(p,n,porData){
+  const melhor=eMelhorOpcao(p,n,porData);
   const ganho=[];
   if(p.fora) ganho.push(`<span class="bad">algum período estoura o prazo</span>`);
   if(p.desperdicio>0) ganho.push(`<span class="warn">${p.desperdicio} feriado${p.desperdicio>1?'s':''} desperdiçado${p.desperdicio>1?'s':''}</span>`);
@@ -1074,7 +1130,17 @@ function planoLinha(p,n,porData){
       <div class="perx">${r.total} fora</div>
     </div>`).join('');
   const rotulo=`Plano com ${p.periodos.length} períodos, ${p.total} dias fora usando ${p.custo} de férias.`;
-  return `<li class="w plano${p.fora?' fora':''}${porData&&p.rank===1?' melhor':''}"
+  const cta=melhor?`
+    <p class="wwhy"><b>Por que essa?</b> ${porquePlano(p)}</p>
+    <div class="wctas" onclick="event.stopPropagation()">
+      <button type="button" class="wcta go" aria-label="Copiar pedido do plano para o RH"
+        onclick="copiarPedidoPlanoRH(event,${n-1})">Pedido RH</button>
+      <button type="button" class="wcta" aria-label="Ver plano no calendário"
+        onclick="selecionarPlano(${n-1})">Ver calendário</button>
+      <button type="button" class="wcta" aria-label="Baixar o plano como eventos"
+        onclick="exportarPlano(event,${n-1})">.ics</button>
+    </div>`:'';
+  return `<li class="w plano${p.fora?' fora':''}${melhor?' melhor':''}"
       tabindex="0" role="button" aria-label="${rotulo}"
       onclick="selecionarPlano(${n-1})"
       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selecionarPlano(${n-1})}">
@@ -1086,13 +1152,14 @@ function planoLinha(p,n,porData){
     </div>
     <div class="wnum">
       <b>${p.total}</b><span>dias fora</span>
-      <div class="wicsrow">
+      ${melhor?'':`<div class="wicsrow">
         <button class="wics" aria-label="Baixar o plano como eventos de calendário"
           onclick="exportarPlano(event,${n-1})">.ics</button>
         <button class="wrh" aria-label="Copiar pedido do plano para o RH"
           onclick="copiarPedidoPlanoRH(event,${n-1})">Pedido RH</button>
-      </div>
+      </div>`}
     </div>
+    ${cta}
   </li>`;
 }
 
@@ -1101,6 +1168,7 @@ function selecionarPlano(k){
   SEL=p.periodos.map(r=>({a:r.a,b:r.b,i:r.i,j:r.j}));
   renderCal();
   tab('cal', document.querySelectorAll('nav.tabs button')[1]);
+  marcarUso();
 }
 
 function exportarPlano(ev,k){
@@ -1153,6 +1221,7 @@ async function copiarPedidoRH(ev,i,j,a,b){
   }
   const prev=btn.textContent; btn.textContent='Copiado';
   setTimeout(()=>{ btn.textContent=prev; },1600);
+  marcarUso();
 }
 
 async function copiarPedidoPlanoRH(ev,k){
@@ -1180,6 +1249,7 @@ async function copiarPedidoPlanoRH(ev,k){
   }
   const prev=btn.textContent; btn.textContent='Copiado';
   setTimeout(()=>{ btn.textContent=prev; },1600);
+  marcarUso();
 }
 
 function pintar(){
@@ -1217,6 +1287,7 @@ function exportar(ev,a,b,i,j){
 function selecionar(a,b,i,j){
   SEL=[{a,b,i,j}]; renderCal();
   tab('cal', document.querySelectorAll('nav.tabs button')[1]);
+  marcarUso();
 }
 
 function renderCal(){
@@ -1585,13 +1656,17 @@ function calc(){
       .catch(()=>{ /* sem JSON: segue com a base embutida */ });
   }
 
-  /* Banner de instalação: Android via beforeinstallprompt; iOS com dica manual. */
+  /* Banner de instalação: só depois de um uso real (escolheu data / Pedido RH).
+     Assim não cobre a lista antes da pessoa decidir. */
   const PWA_MEM='feriascerta:pwa-dismiss';
+  const USO_MEM='feriascerta:usou';
   let deferredPrompt=null;
+  let pendentePwa=null;
   const iOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
   const standalone=window.matchMedia('(display-mode: standalone)').matches
     || navigator.standalone===true;
   const dispensado=(()=>{ try{ return localStorage.getItem(PWA_MEM)==='1'; }catch(_){ return false; }})();
+  const jaUsou=(()=>{ try{ return localStorage.getItem(USO_MEM)==='1'; }catch(_){ return false; }})();
 
   const mostrarPWA=modo=>{
     if(standalone||dispensado) return;
@@ -1604,6 +1679,13 @@ function calc(){
       txt.innerHTML='<b>Instale o Férias Certa</b> na tela inicial — abre sem navegador e funciona offline.';
       go.hidden=false;
     }
+  };
+
+  marcarUso=()=>{
+    try{ localStorage.setItem(USO_MEM,'1'); }catch(_){}
+    if(pendentePwa){ mostrarPWA(pendentePwa); pendentePwa=null; }
+    else if(iOS && !standalone && !dispensado && deferredPrompt===null)
+      setTimeout(()=>mostrarPWA('ios'),600);
   };
 
   $('pwaNo').onclick=()=>{
@@ -1621,11 +1703,10 @@ function calc(){
   window.addEventListener('beforeinstallprompt',e=>{
     e.preventDefault();
     deferredPrompt=e;
-    mostrarPWA('android');
+    if(jaUsou) mostrarPWA('android');
+    else pendentePwa='android';
   });
-  if(iOS && !standalone && !dispensado){
-    setTimeout(()=>mostrarPWA('ios'),1800);
-  }
+  /* iOS: não aparece no carregamento — só após marcarUso() */
 
   /* PWA: só registra quando servido por http(s). Aberto como arquivo local
      o service worker não existe, e isso não pode quebrar nada. */
