@@ -1245,17 +1245,10 @@ function exportarPlano(ev,k){
 }
 
 function textoPedidoRH(i,j,a,b){
-  const aviso=$('aviso').checked;
-  const art=$('art').checked;
-  const cid=$('cid').value || ($('uf').value?UFS[$('uf').value].n:'');
-  let t=`Solicito a concessão de férias de ${fmtA(T[i].d)} a ${fmtA(T[j].d)}`
-    +` (${j-i+1} dias corridos)`;
-  if(cid) t+=`, considerando o calendário de ${cid}`;
-  t+=`.\n\nPeríodo de folga resultante: ${fmtA(T[a].d)} a ${fmtA(T[b].d)} (${b-a+1} dias fora do trabalho).`;
-  if(aviso) t+=`\n\nComunico com 30 dias de antecedência, conforme o art. 135 da CLT.`;
-  if(art) t+=`\nO início respeita o art. 134 §3 (não nos dois dias que antecedem feriado ou repouso).`;
-  t+=`\n\n— Gerado pelo Férias Certa`;
-  return t;
+  return `Oi! Tudo bem?\n\n`
+    +`Gostaria de tirar férias de ${fmtA(T[i].d)} a ${fmtA(T[j].d)}.\n\n`
+    +`Pode confirmar se essas datas estão ok?\n\n`
+    +`Obrigado!`;
 }
 
 async function copiarPedidoRH(ev,i,j,a,b){
@@ -1276,20 +1269,11 @@ async function copiarPedidoPlanoRH(ev,k){
   ev.stopPropagation();
   const p=JANELAS[k];
   const btn=ev.currentTarget;
-  const aviso=$('aviso').checked;
-  const art=$('art').checked;
-  const cid=$('cid').value || ($('uf').value?UFS[$('uf').value].n:'');
-  let t=`Solicito a concessão de férias em ${p.periodos.length} períodos`;
-  if(cid) t+=` (calendário de ${cid})`;
-  t+=`:\n`;
+  let t=`Oi! Tudo bem?\n\nGostaria de dividir as férias em ${p.periodos.length} períodos:\n`;
   p.periodos.forEach((r,n)=>{
-    t+=`\n${n+1}) ${fmtA(T[r.i].d)} a ${fmtA(T[r.j].d)} — ${r.custo} dias corridos`
-      +` (folga de ${fmtA(T[r.a].d)} a ${fmtA(T[r.b].d)}, ${r.total} dias fora)`;
+    t+=`\n${n+1}) de ${fmtA(T[r.i].d)} a ${fmtA(T[r.j].d)}`;
   });
-  t+=`\n\nTotal: ${p.custo} dias de saldo · ${p.total} dias fora.`;
-  if(aviso) t+=`\nComunico com 30 dias de antecedência (art. 135 da CLT).`;
-  if(art) t+=`\nOs inícios respeitam o art. 134 §3.`;
-  t+=`\n\n— Gerado pelo Férias Certa`;
+  t+=`\n\nPode confirmar se essas datas estão ok?\n\nObrigado!`;
   try{ await navigator.clipboard.writeText(t); }
   catch(_){
     const ta=document.createElement('textarea'); ta.value=t;
